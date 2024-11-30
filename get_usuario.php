@@ -14,4 +14,6 @@ $resultado = mysqli_query($conexion, $sql);
 $usuario = $resultado->fetch_assoc();
 
 $_SESSION[$usuario['username']] = $usuario;
+
+return $usuario;
 ?>

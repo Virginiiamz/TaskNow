@@ -16,6 +16,5 @@ while ($fila = mysqli_fetch_assoc($resultado)) {
     $listas[] = $fila;
 }
 
-// var_dump($listas);
 return $listas;
 ?>
