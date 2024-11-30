@@ -97,24 +97,25 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada'])) {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form th:action="@{/crearTarea}" method="get">
+                            <form action="procesar_alta_tarea.php" method="post">
+                                <input type="hidden" name="txtIdListaTarea" id="txtIdListaTarea" value="<?php $listaSeleccionada['id'] ?>">
                                 <div class="mb-3">
-                                    <label for="descripcionTarea" class="form-label">Descripción: </label>
-                                    <input type="text" class="form-control" id="descripcionTarea"
-                                        name="descripcionTarea">
+                                    <label for="txtDescripcionTarea" class="form-label">Descripción: </label>
+                                    <input type="text" class="form-control" id="txtDescripcionTarea"
+                                        name="txtDescripcionTarea">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="etiquetaTarea" class="form-label">Etiqueta: </label>
-                                    <select class="form-select" name="etiquetaTarea" id="etiquetaTarea">
+                                    <label for="txtEtiquetaTarea" class="form-label">Etiqueta: </label>
+                                    <select class="form-select" name="txtEtiquetaTarea" id="txtEtiquetaTarea">
                                         <option value="" selected>Selecciona una etiqueta</option>
-                                        <option th:each="etiqueta: ${listaEtiquetas}" th:value="${etiqueta.id_etiqueta}"
+                                        <!-- <option th:each="etiqueta: ${listaEtiquetas}" th:value="${etiqueta.id_etiqueta}"
                                             th:text="${etiqueta.nombre}"
-                                            th:style="'color:' + ${etiqueta.color}"></option>
+                                            th:style="'color:' + ${etiqueta.color}"></option> -->
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="fechaVenTarea" class="form-label">Fecha vencimiento: </label>
-                                    <input type="date" class="form-control" id="fechaVenTarea" name="fechaVenTarea">
+                                    <label for="txtfechaVenTarea" class="form-label">Fecha vencimiento: </label>
+                                    <input type="date" class="form-control" id="txtfechaVenTarea" name="txtfechaVenTarea">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Crear</button>
                             </form>
