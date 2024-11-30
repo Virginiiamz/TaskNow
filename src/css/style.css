@@ -1,0 +1,221 @@
+:root {
+    --color-principal: #454545;
+    --color-secundario: #2F2F2F;
+    --color-terciario: #865F96;
+}
+
+/* Fuentes */
+@font-face {
+    font-family: 'Fira Sans Condensed Medium';
+    src: url(../fonts/Fira_Sans_Condensed/FiraSansCondensed-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Quicksand-VariableFont_wght';
+    src: url(../../fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
+}
+
+/* Global */
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+a {
+    font-family: "Fira Sans Condensed Medium";
+}
+
+sidebar {
+    background-color: var(--color-secundario);
+}
+
+/* Pagina Inicio */
+
+.pantallaPrincipal {
+    background-color: var(--color-principal);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.pantallaPrincipal_sidebar {
+    width: 20%;
+}
+
+.pantallaPrincipal_sidebar--navegacion {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.navegacionPrincipal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.navegacionPrincipal_btn {
+    background-color: var(--color-terciario);
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    border: 0;
+    display: none;
+}
+
+.navegacionPrincipal_logo--logo {
+    width: 7rem;
+}
+
+.navegacionEnlaces {
+    border-top: 3px solid var(--color-terciario);
+    padding: 1rem;
+    width: 90%;
+    text-align: start;
+}
+
+.navegacionEnlaces_usuario {
+    display: none;
+    border: 2px solid var(--color-terciario);
+    width: 15rem;
+    height: auto;
+    border-radius: 8px;
+}
+
+.navegacionEnlaces_usuario--enlace {
+    color: var(--color-terciario);
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    padding: 0.2rem 0rem;
+    margin: 0;
+}
+
+.navegacionEnlaces_background {
+    background-color: var(--color-principal);
+    border-radius: 8px;
+    width: 15rem;
+    height: auto;
+    transition: 0.7s;
+}
+
+.navegacionEnlaces_background:hover {
+    background-color: white;
+}
+
+.navegacionEnlaces_background:hover .navegacionEnlaces_background--enlace {
+    color: var(--color-secundario);
+}
+
+.navegacionEnlaces_background--enlace {
+    color: var(--color-terciario);
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    padding: 0.2rem 0rem;
+    margin: 0;
+}
+
+#navegacionEnlaces_active {
+    background-color: var(--color-terciario);
+    transition: 0.7s;
+}
+
+#navegacionEnlaces_active--enlace {
+    color: var(--color-secundario);
+}
+
+#navegacionEnlaces_active:hover {
+    background-color: white;
+}
+
+/* Pantalla Principal */
+
+.pantallaPrincipal_contenido {
+    width: 80%;
+    padding: 0;
+    margin: 0;
+}
+
+.pantallaPrincipal_contenido--header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.header_btnCrear {
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    background-color: var(--color-terciario);
+    color: var(--color-principal);
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.header_btnUsuario {
+    border: 2px solid var(--color-terciario);
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    border-radius: 8px;
+    color: var(--color-terciario);
+    text-decoration: none;
+}
+
+.tituloInicio_btnEtiquetas {
+    margin-left: 1rem;
+    background-color: white;
+    color: var(--color-secundario);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+@media screen and (max-width:768px) {
+
+    .navegacionEnlaces_usuario {
+        display: block;
+        align-items: center;
+    }
+
+    .pantallaPrincipal {
+        flex-direction: column;
+    }
+
+    .pantallaPrincipal_sidebar {
+        width: 100%;
+    }
+
+    .navegacionPrincipal {
+        padding: 1rem;
+        justify-content: space-between;
+    }
+
+    .navegacionPrincipal_btn {
+        display: block;
+    }
+
+    .pantallaPrincipal_contenido {
+        width: 100%;
+    }
+
+    .header_btnUsuario {
+        display: none;
+    }
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+    
+    
+}
