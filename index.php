@@ -1,3 +1,9 @@
+<?php
+$listas = require_once('get_usuario.php');
+require_once('get_listas.php');
+$usuario = $_SESSION['marinagc40'];
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -44,14 +50,19 @@
                                     Inicio</p>
                             </div>
                         </a>
-                        <!-- <a th:each="categoria : ${listaCategorias}"
-                            th:href="@{/tareas/{cat}(cat=${categoria.id_categoria})}" class="text-decoration-none">
-                            <div class="navegacionEnlaces_background">
-                                <p class="navegacionEnlaces_background--enlace fs-5 ms-2"><i
-                                        class="bi bi-journal-check me-1"></i><span th:text="${categoria.nombre}"></span>
-                                </p>
-                            </div>
-                        </a> -->
+                        <?php
+                        foreach ($listas as $lista) {
+                        ?>
+                            <a href="" class="text-decoration-none">
+                                <div class="navegacionEnlaces_background">
+                                    <p class="navegacionEnlaces_background--enlace fs-5 ms-2"><i
+                                            class="bi bi-journal-check me-1"></i><span><?php echo $lista['nombre'] ?></span>
+                                    </p>
+                                </div>
+                            </a>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </nav>
@@ -60,7 +71,7 @@
             <section class="pantallaPrincipal_contenido--header">
                 <a href="" class="header_btnCrear fs-5" data-bs-toggle="modal" data-bs-target="#modalCrearLista"><i
                         class="bi bi-plus-circle-fill me-1"></i>Crear lista</a>
-                <a href="" class="header_btnUsuario fs-5"><span></span><i class="bi bi-person-circle ms-1 fs-5"></i></a>
+                <a href="" class="header_btnUsuario fs-5"><span><?php echo $usuario['username'] ?></span><i class="bi bi-person-circle ms-1 fs-5"></i></a>
             </section>
 
             <section class="pantallaPrincipal_contenido--tituloInicio">
@@ -105,10 +116,10 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="get">
+                            <form action="procesar_alta_lista.php" method="post">
                                 <div class="mb-3">
-                                    <label for="nombreCategoria" class="form-label">Nombre: </label>
-                                    <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria">
+                                    <label for="txtNombreLista" class="form-label">Nombre: </label>
+                                    <input type="text" class="form-control" id="txtNombreLista" name="txtNombreLista" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Crear</button>
                             </form>
