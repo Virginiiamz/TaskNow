@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - TaskNow</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="src/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -19,7 +18,8 @@
 
                 <div class="navegacionPrincipal">
                     <a class="navbar-brand align-self-center navegacionPrincipal_logo" href="#"><img
-                            src="../img/Logo_tipo2.png" class="img-fluid navegacionPrincipal_logo--logo" alt="Logo"></a>
+                            src="src/img/Logo_tipo2.png" class="img-fluid navegacionPrincipal_logo--logo"
+                            alt="Logo"></a>
                     <button class="navegacionPrincipal_btn" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -32,25 +32,26 @@
                         <a href="" class="text-decoration-none">
                             <div class="navegacionEnlaces_usuario">
                                 <p class="fs-5 ms-2 navegacionEnlaces_usuario--enlace"><i
-                                        class="bi bi-person-circle me-1"></i><span
-                                        th:text="${usuario.nombreUsuario}"></span></p>
+                                        class="bi bi-person-circle me-1"></i>
+                                    <spanspan>
+                                </p>
                             </div>
                         </a>
-                        <a th:href="@{/}" class="navegacionEnlaces_background text-decoration-none">
+                        <a href="" class="navegacionEnlaces_background text-decoration-none">
                             <div class="navegacionEnlaces_background" id="navegacionEnlaces_active">
                                 <p class="navegacionEnlaces_background--enlace fs-5 ms-2"
                                     id="navegacionEnlaces_active--enlace"><i class="bi bi-house-door-fill me-1"></i>
                                     Inicio</p>
                             </div>
                         </a>
-                        <a th:each="categoria : ${listaCategorias}"
+                        <!-- <a th:each="categoria : ${listaCategorias}"
                             th:href="@{/tareas/{cat}(cat=${categoria.id_categoria})}" class="text-decoration-none">
                             <div class="navegacionEnlaces_background">
                                 <p class="navegacionEnlaces_background--enlace fs-5 ms-2"><i
                                         class="bi bi-journal-check me-1"></i><span th:text="${categoria.nombre}"></span>
                                 </p>
                             </div>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </nav>
@@ -59,8 +60,7 @@
             <section class="pantallaPrincipal_contenido--header">
                 <a href="" class="header_btnCrear fs-5" data-bs-toggle="modal" data-bs-target="#modalCrearLista"><i
                         class="bi bi-plus-circle-fill me-1"></i>Crear lista</a>
-                <a href="" class="header_btnUsuario fs-5"><span th:text="${usuario.nombreUsuario}"></span><i
-                        class="bi bi-person-circle ms-1 fs-5"></i></a>
+                <a href="" class="header_btnUsuario fs-5"><span></span><i class="bi bi-person-circle ms-1 fs-5"></i></a>
             </section>
 
             <section class="pantallaPrincipal_contenido--tituloInicio">
@@ -79,7 +79,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form th:action="@{/crearEtiqueta}" method="get">
+                            <form action="" method="get">
                                 <div class="mb-3">
                                     <label for="nombreEtiqueta" class="form-label">Nombre: </label>
                                     <input type="text" class="form-control" id="nombreEtiqueta" name="nombreEtiqueta">
@@ -105,7 +105,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form th:action="@{/crearLista}" method="get">
+                            <form action="" method="get">
                                 <div class="mb-3">
                                     <label for="nombreCategoria" class="form-label">Nombre: </label>
                                     <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria">
