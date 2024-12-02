@@ -46,11 +46,11 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                             <div class="navegacionEnlaces_usuario">
                                 <p class="fs-5 ms-2 navegacionEnlaces_usuario--enlace"><i
                                         class="bi bi-person-circle me-1"></i>
-                                    <spanspan>
+                                    <span><?php echo $usuario['username'] ?></span>
                                 </p>
                             </div>
                         </a>
-                        <a href="" class="navegacionEnlaces_background text-decoration-none">
+                        <a href="index.php" class="navegacionEnlaces_background text-decoration-none">
                             <div class="navegacionEnlaces_background" id="navegacionEnlaces_active">
                                 <p class="navegacionEnlaces_background--enlace fs-5 ms-2"
                                     id="navegacionEnlaces_active--enlace"><i class="bi bi-house-door-fill me-1"></i>
