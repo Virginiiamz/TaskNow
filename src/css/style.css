@@ -11,8 +11,8 @@
 }
 
 @font-face {
-    font-family: 'Quicksand-VariableFont_wght';
-    src: url(../../fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
+    font-family: 'Quicksand Light';
+    src: url(../fonts/Quicksand/static/Quicksand-Light.ttf);
 }
 
 /* Global */
@@ -180,6 +180,61 @@ sidebar {
     border-radius: 8px;
 }
 
+/* Pantalla tarea segun la lista */
+.pantallaTareas {
+    margin: 1rem;
+}
+
+.pantallaTareas_contenido {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    padding: 0.5rem 0rem;
+    background-color: var(--color-secundario);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.pantallaTareas_contenido a {
+    text-decoration: none;
+}
+
+.pantallaTareas_contenido--informacion {
+    width: 95%;
+    font-family: "Quicksand Light";
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tareaInformacion_descripcion {
+    width: 70%;
+    margin: 0;
+}
+
+.tareaInformacion_fecha {
+    width: 10%;
+    margin: 0;
+    text-align: center;
+}
+
+.tareaInformacion_etiqueta {
+    width: 20%;
+    text-align: center;
+    padding: 0.2rem;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.pantallaTareas_contenido--borrarTarea {
+    background-color: #973C3C;
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+}
+
 @media screen and (max-width:768px) {
 
     .navegacionEnlaces_usuario {
@@ -211,11 +266,7 @@ sidebar {
     .header_btnUsuario {
         display: none;
     }
-    
+
 }
 
-@media screen and (min-width: 768px) and (max-width: 992px) {
-
-    
-    
-}
+@media screen and (min-width: 768px) and (max-width: 992px) {}

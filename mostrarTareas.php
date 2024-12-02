@@ -88,24 +88,22 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                     <?php
                     foreach ($tareas as $tarea) {
                     ?>
-                        <div class="pantallaTareas_tarea">
-                            <a href="">
-                                <div>
-                                    <p><?php echo $tarea['descripcion'] ?></p>
-                                    <p><?php echo $tarea['fecha_venc'] ?></p>
-                                    <?php
-                                    foreach ($etiquetas as $etiqueta) {
-                                        if ($etiqueta['id'] == $tarea['id_etiqueta']) {
-                                    ?>
-                                            <span style="background-color: <?php echo $etiqueta['color'] ?>;"><?php echo $etiqueta['nombre'] ?></span>
+                        <div class="pantallaTareas_contenido">
+                            <a class="pantallaTareas_contenido--informacion" href="">
+                                <p class="fs-5 tareaInformacion_descripcion"><?php echo $tarea['descripcion'] ?></p>
+                                <p class="fs-5 tareaInformacion_fecha"><?php echo $tarea['fecha_venc'] ?></p>
+                                <?php
+                                foreach ($etiquetas as $etiqueta) {
+                                    if ($etiqueta['id'] == $tarea['id_etiqueta']) {
+                                ?>
+                                        <span class="tareaInformacion_etiqueta fs-5" style="background-color: <?php echo $etiqueta['color'] ?>;"><?php echo $etiqueta['nombre'] ?></span>
 
-                                    <?php
-                                        }
+                                <?php
                                     }
-                                    ?>
-                                </div>
+                                }
+                                ?>
                             </a>
-                            <a href=""><i class="bi bi-trash3-fill text-white"></i></a>
+                            <a class="pantallaTareas_contenido--borrarTarea fs-5" href=""><i class="bi bi-trash3-fill text-white"></i></a>
                         </div>
                     <?php
                     }
