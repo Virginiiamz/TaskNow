@@ -267,6 +267,35 @@ sidebar {
         display: none;
     }
 
+    .pantallaTareas_contenido {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+    
+    .pantallaTareas_contenido--informacion {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .tareaInformacion_descripcion {
+        width: 100%;
+    }
+    
+    .tareaInformacion_fecha {
+        width: 100%;
+        text-align: start;
+    }
+    
+    .tareaInformacion_etiqueta {
+        width: 100%;
+    }
+    
+    .pantallaTareas_contenido--borrarTarea {
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {}
