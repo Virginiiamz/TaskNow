@@ -25,7 +25,5 @@ if (mysqli_errno($conexion) != 0) {
     $mensaje =  "<h2 class='text-center mt-5'>Se ha creado la tarea correctamente</h2>";
 }
 
-echo $mensaje;
-// Redireccionar tras 5 segundos al index.
-// Siempre debe ir antes de DOCTYPE
-// header( "refresh:0;url=mostrarTareas.php" );
+// echo $mensaje;
+header("refresh:0;url=get_tarea.php?idLista=$id_lista");

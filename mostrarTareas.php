@@ -2,10 +2,12 @@
 $listas = require_once('get_listas.php');
 $usuario = require_once('get_usuario.php');
 
-if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada'])) {
+if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['etiquetas'])) {
     // Decodificar el JSON que recibimos de la URL
     $tareas = json_decode($_GET['tareas'], true);  // El segundo parámetro 'true' convierte el JSON a un array asociativo
     $listaSeleccionada = json_decode($_GET['listaSeleccionada'], true);
+    $etiquetas = json_decode($_GET['etiquetas'], true);
+    // var_dump($tareas);
 }
 ?>
 
@@ -81,9 +83,33 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada'])) {
             </section>
 
             <section>
-                <h2 class="text-white m-3"><?php echo $listaSeleccionada['nombre']?></h2>
-                <div>
+                <h2 class="text-white m-3"><?php echo $listaSeleccionada['nombre'] ?></h2>
+                <div class="pantallaTareas">
+                    <?php
+                    foreach ($tareas as $tarea) {
+                    ?>
+                        <div class="pantallaTareas_tarea">
+                            <a href="">
+                                <div>
+                                    <p><?php echo $tarea['descripcion'] ?></p>
+                                    <p><?php echo $tarea['fecha_venc'] ?></p>
+                                    <?php
+                                    foreach ($etiquetas as $etiqueta) {
+                                        if ($etiqueta['id'] == $tarea['id_etiqueta']) {
+                                    ?>
+                                            <span style="background-color: <?php echo $etiqueta['color'] ?>;"><?php echo $etiqueta['nombre'] ?></span>
 
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            </a>
+                            <a href=""><i class="bi bi-trash3-fill text-white"></i></a>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </section>
 
@@ -115,7 +141,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada'])) {
                                 </div>
                                 <div class="mb-3">
                                     <label for="txtfechaVenTarea" class="form-label">Fecha vencimiento: </label>
-                                    <input type="date" class="form-control" id="txtfechaVenTarea" name="txtfechaVenTarea">
+                                    <input type="date" class="form-control" id="txtfechaVenTarea" name="txtfechaVenTarea" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Crear</button>
                             </form>
