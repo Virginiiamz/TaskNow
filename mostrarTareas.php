@@ -90,6 +90,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                     ?>
                         <div class="pantallaTareas_contenido">
                             <a class="pantallaTareas_contenido--informacion" href="">
+                                <input type="checkbox" name="" id="" <?php echo $tarea['esrealizada'] ? 'checked' : ''; ?>>
                                 <p class="fs-5 tareaInformacion_descripcion"><?php echo $tarea['descripcion'] ?></p>
                                 <p class="fs-5 tareaInformacion_fecha"><?php echo $tarea['fecha_venc'] ?></p>
                                 <?php
