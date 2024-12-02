@@ -98,7 +98,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada'])) {
                         </div>
                         <div class="modal-body">
                             <form action="procesar_alta_tarea.php" method="post">
-                                <input type="hidden" name="txtIdListaTarea" id="txtIdListaTarea" value="<?php $listaSeleccionada['id'] ?>">
+                                <input type="hidden" name="txtIdListaTarea" id="txtIdListaTarea" value="<?php echo $listaSeleccionada['id'] ?>">
                                 <div class="mb-3">
                                     <label for="txtDescripcionTarea" class="form-label">Descripción: </label>
                                     <input type="text" class="form-control" id="txtDescripcionTarea"
@@ -107,7 +107,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada'])) {
                                 <div class="mb-3">
                                     <label for="txtEtiquetaTarea" class="form-label">Etiqueta: </label>
                                     <select class="form-select" name="txtEtiquetaTarea" id="txtEtiquetaTarea">
-                                        <option value="" selected>Selecciona una etiqueta</option>
+                                        <option value="1" selected>Selecciona una etiqueta</option>
                                         <!-- <option th:each="etiqueta: ${listaEtiquetas}" th:value="${etiqueta.id_etiqueta}"
                                             th:text="${etiqueta.nombre}"
                                             th:style="'color:' + ${etiqueta.color}"></option> -->

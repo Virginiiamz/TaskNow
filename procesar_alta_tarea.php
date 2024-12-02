@@ -4,16 +4,14 @@ $conexion = obtenerConexion();
 
 // Recuperar parámetros
 
-$id_lista = (int)$_POST['txtIdListaTarea'];
+$id_lista = $_POST['txtIdListaTarea'];
 $descripcion = $_POST['txtDescripcionTarea'];
 $etiqueta = $_POST['txtEtiquetaTarea'];
 $fechaVencimiento = $_POST['txtfechaVenTarea'];
 
-// No validamos, suponemos que la entrada de datos es correcta
-
 // Definir insert
 $sql = "INSERT INTO tarea(`id`, `descripcion`, `esrealizada`, `fecha_venc`, `id_lista`, `id_etiqueta`) 
-                VALUES (null,'" . $descripcion . "', 0, null, 1, null);";
+                VALUES (null,'" . $descripcion . "', 0, '" . $fechaVencimiento . "',  $id_lista, $etiqueta);";
 
 // Ejecutar consulta
 $resultado = mysqli_query($conexion, $sql);
