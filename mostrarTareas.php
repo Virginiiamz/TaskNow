@@ -122,7 +122,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                                 }
                                 ?>
                             </a>
-                            <a class="pantallaTareas_contenido--borrarTarea fs-5" href=""><i class="bi bi-trash3-fill text-white"></i></a>
+                            <a class="pantallaTareas_contenido--borrarTarea fs-5" href="procesar_borrar_tarea.php?idTarea=<?php echo $tarea['id'] ?>&idLista=<?php echo $listaSeleccionada['id'] ?>"><i class="bi bi-trash3-fill text-white"></i></a>
                         </div>
                     <?php
                     }
