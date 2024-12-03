@@ -87,9 +87,22 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                 <div class="pantallaTareas">
                     <?php
                     foreach ($tareas as $tarea) {
+                        foreach ($etiquetas as $etiqueta) {
+                            if ($etiqueta['id'] == $tarea['id_etiqueta']) {
+                                $etiquetaSeleccionada = $etiqueta;
+                            }
+                        }
                     ?>
                         <div class="pantallaTareas_contenido">
-                            <a class="pantallaTareas_contenido--informacion" href="">
+                            <a class="pantallaTareas_contenido--informacion" href="editar_tarea.php?
+                            idTarea=<?php echo $tarea['id'] ?>
+                            &descripcionTarea=<?php echo $tarea['descripcion'] ?>
+                            &esrealizadaTarea=<?php echo $tarea['esrealizada'] ?>
+                            &fechavencTarea=<?php echo $tarea['fecha_venc'] ?>
+                            &idEtiqueta=<?php echo $tarea['id_etiqueta'] ?>
+                            &etiquetaNombre=<?php echo $etiquetaSeleccionada['nombre'] ?>
+                            &listaNombre=<?php echo $listaSeleccionada['nombre'] ?>">
+
                                 <div class="checkbox-wrapper-12">
                                     <div class="cbx">
                                         <input <?php echo $tarea['esrealizada'] ? 'checked' : ''; ?> type="checkbox" id="cbx-12" disabled>
@@ -130,7 +143,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                 </div>
             </section>
 
-            <!-- Modal -->
+            <!-- Modal Crear -->
             <div class="modal fade" id="modalCrearTarea" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
