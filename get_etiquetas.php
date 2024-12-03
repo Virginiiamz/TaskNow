@@ -5,7 +5,7 @@ $conexion = obtenerConexion();
 // No validamos, suponemos que la entrada de datos es correcta
 
 // Definir insert
-$sql = "SELECT * FROM etiqueta";
+$sql = "SELECT * FROM etiqueta WHERE id_usuario = 1";
 
 // Ejecutar consulta
 $resultado = mysqli_query($conexion, $sql);
