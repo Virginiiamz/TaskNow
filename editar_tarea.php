@@ -110,11 +110,10 @@ if (isset($_REQUEST['idTarea'])) {
                         <div class="col-md-10 mb-3">
                             <label for="txtModificarEtiqueta" class="form-label text-white fs-5">Etiqueta: </label>
                             <select class="form-select" name="txtModificarEtiqueta" id="txtModificarEtiqueta" required>
-                                <option value="" selected>Selecciona una etiqueta</option>
                                 <?php
                                 foreach ($etiquetas as $etiqueta) {
                                 ?>
-                                    <option value="<?php echo $etiqueta['id'] ?>"><?php echo $etiqueta['nombre'] ?></option>
+                                    <option <?php echo $idEtiqueta==$etiqueta['id'] ? 'selected' : ''; ?> value="<?php echo $etiqueta['id'] ?>"><?php echo $etiqueta['nombre'] ?></option>
                                 <?php
                                 }
                                 ?>
