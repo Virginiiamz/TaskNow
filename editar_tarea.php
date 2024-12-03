@@ -87,43 +87,35 @@ if (isset($_REQUEST['idTarea'])) {
             </section>
 
             <section>
-                <h2 class="text-white m-3"><?php echo $listaSeleccionada ?></h2>
+                <h2 class="text-white m-3">Editar tarea</h2>
                 <!-- Modal Editar -->
-                <div class="modal fade" id="modalEditarTarea" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Tarea</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="procesar_alta_tarea.php" method="post">
-                                    <input type="hidden" name="txtIdListaTarea" id="txtIdListaTarea" value="<?php echo $listaSeleccionada['id'] ?>">
-                                    <div class="mb-3">
-                                        <label for="txtDescripcionTarea" class="form-label">Descripción: </label>
-                                        <input type="text" class="form-control" id="txtDescripcionTarea"
-                                            name="txtDescripcionTarea">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="txtEtiquetaTarea" class="form-label">Etiqueta: </label>
-                                        <select class="form-select" name="txtEtiquetaTarea" id="txtEtiquetaTarea">
-                                            <option value="1" selected>Selecciona una etiqueta</option>
-                                            <!-- <option th:each="etiqueta: ${listaEtiquetas}" th:value="${etiqueta.id_etiqueta}"
-                                            th:text="${etiqueta.nombre}"
-                                            th:style="'color:' + ${etiqueta.color}"></option> -->
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="txtfechaVenTarea" class="form-label">Fecha vencimiento: </label>
-                                        <input type="date" class="form-control" id="txtfechaVenTarea" name="txtfechaVenTarea" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Crear</button>
-                                </form>
-                            </div>
+                <form class="form m-3 formularioEditarTarea">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="descripcion" class="form-label text-white">Descripcion:</label>
+                            <input type="text" class="form-control" id="descripcion" value="<?php echo $descripcionTarea ?>">
                         </div>
                     </div>
-                </div>
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            <label for="descripcion" class="form-label text-white">Estado:</label>
+                            <select class="form-select" name="" id="">
+                                <option <?php echo $esrealizadaTarea == 1 ? 'selected' : '' ?> value="0">No completada</option>
+                                <option <?php echo $esrealizadaTarea == 1 ? 'selected' : ''; ?> value="1">Completada</option>
+                            </select>
+                        </div>
+                        <div class="col-10">
+                            <label for="txtEtiquetaTarea" class="form-label text-white">Etiqueta: </label>
+                            <select class="form-select" name="txtEtiquetaTarea" id="txtEtiquetaTarea">
+                                <option value="1" selected>Selecciona una etiqueta</option>
+                                <!-- <option th:each="etiqueta: ${listaEtiquetas}" th:value="${etiqueta.id_etiqueta}"
+                                            th:text="${etiqueta.nombre}"
+                                            th:style="'color:' + ${etiqueta.color}"></option> -->
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </section>
         </main>
     </section>

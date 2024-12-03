@@ -74,7 +74,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                 </div>
             </nav>
         </sidebar>
-        <main class="pantallaPrincipal_contenido" style="height: 100vh;">
+        <main class="pantallaPrincipal_contenido" style="min-height: 100vh;">
             <section class="pantallaPrincipal_contenido--header">
                 <a href="" class="header_btnCrear fs-5" data-bs-toggle="modal" data-bs-target="#modalCrearTarea"><i
                         class="bi bi-plus-circle-fill me-1"></i>Crear tarea</a>
