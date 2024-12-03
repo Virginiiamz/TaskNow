@@ -57,6 +57,9 @@ $usuario = require_once('get_usuario.php');
                                     <p class="navegacionEnlaces_background--enlace fs-5 ms-2"><i
                                             class="bi bi-journal-check me-1"></i><span><?php echo $lista['nombre'] ?></span>
                                     </p>
+                                    <a href="">
+                                        <i class="bi bi-x-lg"></i>
+                                    </a>
                                 </div>
                             </a>
                         <?php
