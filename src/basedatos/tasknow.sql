@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 30-11-2024 a las 11:39:24
+-- Tiempo de generación: 03-12-2024 a las 21:29:06
 -- Versión del servidor: 8.0.39
 -- Versión de PHP: 8.2.8
 
@@ -30,8 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `etiqueta` (
   `id` int NOT NULL,
   `nombre` varchar(100) NOT NULL,
-  `color` varchar(100) NOT NULL
+  `color` varchar(100) NOT NULL,
+  `id_usuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `etiqueta`
+--
+
+INSERT INTO `etiqueta` (`id`, `nombre`, `color`, `id_usuario`) VALUES
+(1, 'prueba', '#74A968', 1);
 
 -- --------------------------------------------------------
 
@@ -55,9 +63,9 @@ CREATE TABLE `tarea` (
   `id` int NOT NULL,
   `descripcion` varchar(500) NOT NULL,
   `esrealizada` tinyint(1) NOT NULL,
-  `fecha_venc` date NOT NULL,
+  `fecha_venc` date DEFAULT NULL,
   `id_lista` int NOT NULL,
-  `id_etiqueta` int NOT NULL
+  `id_etiqueta` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -74,6 +82,13 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `username`, `email`, `password`) VALUES
+(1, 'marinagc40', 'marinagarciacotan@gmail.com', '1234');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -82,7 +97,8 @@ CREATE TABLE `usuario` (
 --
 ALTER TABLE `etiqueta`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nombre` (`nombre`);
+  ADD UNIQUE KEY `nombre` (`nombre`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `lista`
@@ -116,29 +132,35 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `etiqueta`
 --
 ALTER TABLE `etiqueta`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `lista`
 --
 ALTER TABLE `lista`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `tarea`
 --
 ALTER TABLE `tarea`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `etiqueta`
+--
+ALTER TABLE `etiqueta`
+  ADD CONSTRAINT `etiqueta_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
 
 --
 -- Filtros para la tabla `lista`
