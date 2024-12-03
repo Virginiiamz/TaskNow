@@ -103,7 +103,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                             &etiquetaNombre=<?php echo $etiquetaSeleccionada['nombre'] ?>
                             &idLista=<?php echo $listaSeleccionada['id'] ?>">
 
-                                <div class="checkbox-wrapper-12">
+                                <div class="checkbox-wrapper-12 me-auto">
                                     <div class="cbx">
                                         <input <?php echo $tarea['esrealizada'] ? 'checked' : ''; ?> type="checkbox" id="cbx-12" disabled>
                                         <label for="cbx-12"></label>
