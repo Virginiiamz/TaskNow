@@ -89,7 +89,7 @@ $usuario = require_once('get_usuario.php');
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="procesar_alta_categoria.php" method="post">
+                            <form action="procesar_alta_etiqueta.php" method="post">
                                 <div class="mb-3">
                                     <label for="nombreEtiqueta" class="form-label">Nombre: </label>
                                     <input type="text" class="form-control" id="nombreEtiqueta" name="nombreEtiqueta">

@@ -9,8 +9,8 @@ $colorEtiqueta = $_POST['colorEtiqueta'];
 // No validamos, suponemos que la entrada de datos es correcta
 
 // Definir insert
-$sql = "INSERT INTO etiqueta(`id`, `nombre`, `color`) 
-                VALUES (null,'" . $nombreEtiqueta . "', '" . $colorEtiqueta . "');";
+$sql = "INSERT INTO etiqueta(`id`, `nombre`, `color`, `id_usuario`) 
+                VALUES (null,'" . $nombreEtiqueta . "', '" . $colorEtiqueta . "', 1);";
 
 // Ejecutar consulta
 $resultado = mysqli_query($conexion, $sql);
