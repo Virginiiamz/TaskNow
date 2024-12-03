@@ -173,7 +173,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                                     <label for="txtfechaVenTarea" class="form-label">Fecha vencimiento: </label>
                                     <input type="date" class="form-control" id="txtfechaVenTarea" name="txtfechaVenTarea" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Crear</button>
+                                <button type="submit" class="btn_formularios text-white">Crear</button>
                             </form>
                         </div>
                     </div>

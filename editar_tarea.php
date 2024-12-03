@@ -116,7 +116,7 @@ if (isset($_REQUEST['idTarea'])) {
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn_editarTarea fs-5">Guardar</button>
+                    <button type="submit" class="btn_formularios fs-5">Guardar</button>
                 </form>
             </section>
         </main>
