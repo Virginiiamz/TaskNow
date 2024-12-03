@@ -1,6 +1,7 @@
 <?php
 $listas = require_once('get_listas.php');
 $usuario = require_once('get_usuario.php');
+$etiquetas = require_once('get_etiquetas.php');
 
 if (isset($_REQUEST['idTarea'])) {
     // Recuperar los parámetros
@@ -108,11 +109,15 @@ if (isset($_REQUEST['idTarea'])) {
                         </div>
                         <div class="col-md-10 mb-3">
                             <label for="txtModificarEtiqueta" class="form-label text-white fs-5">Etiqueta: </label>
-                            <select class="form-select" name="txtModificarEtiqueta" id="txtModificarEtiqueta">
-                                <option value="1" selected>Selecciona una etiqueta</option>
-                                <!-- <option th:each="etiqueta: ${listaEtiquetas}" th:value="${etiqueta.id_etiqueta}"
-                                            th:text="${etiqueta.nombre}"
-                                            th:style="'color:' + ${etiqueta.color}"></option> -->
+                            <select class="form-select" name="txtModificarEtiqueta" id="txtModificarEtiqueta" required>
+                                <option value="" selected>Selecciona una etiqueta</option>
+                                <?php
+                                foreach ($etiquetas as $etiqueta) {
+                                ?>
+                                    <option value="<?php echo $etiqueta['id'] ?>"><?php echo $etiqueta['nombre'] ?></option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
