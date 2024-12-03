@@ -92,20 +92,20 @@ if (isset($_REQUEST['idTarea'])) {
                 <form class="form m-3 formularioEditarTarea">
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="descripcion" class="form-label text-white">Descripcion:</label>
+                            <label for="descripcion" class="form-label text-white fs-5">Descripcion:</label>
                             <input type="text" class="form-control" id="descripcion" value="<?php echo $descripcionTarea ?>">
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-2">
-                            <label for="descripcion" class="form-label text-white">Estado:</label>
+                    <div class="row mb-3 mb-md-0">
+                        <div class="col-md-2 mb-3">
+                            <label for="descripcion" class="form-label text-white fs-5">Estado:</label>
                             <select class="form-select" name="" id="">
                                 <option <?php echo $esrealizadaTarea == 1 ? 'selected' : '' ?> value="0">No completada</option>
                                 <option <?php echo $esrealizadaTarea == 1 ? 'selected' : ''; ?> value="1">Completada</option>
                             </select>
                         </div>
-                        <div class="col-10">
-                            <label for="txtEtiquetaTarea" class="form-label text-white">Etiqueta: </label>
+                        <div class="col-md-10 mb-3">
+                            <label for="txtEtiquetaTarea" class="form-label text-white fs-5">Etiqueta: </label>
                             <select class="form-select" name="txtEtiquetaTarea" id="txtEtiquetaTarea">
                                 <option value="1" selected>Selecciona una etiqueta</option>
                                 <!-- <option th:each="etiqueta: ${listaEtiquetas}" th:value="${etiqueta.id_etiqueta}"
@@ -114,18 +114,12 @@ if (isset($_REQUEST['idTarea'])) {
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn_editarTarea fs-5">Guardar</button>
                 </form>
             </section>
         </main>
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('modalEditarTarea');
-            modal.show(); // Muestra el modal automáticamente
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
