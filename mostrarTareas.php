@@ -162,11 +162,15 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                                 </div>
                                 <div class="mb-3">
                                     <label for="txtEtiquetaTarea" class="form-label">Etiqueta: </label>
-                                    <select class="form-select" name="txtEtiquetaTarea" id="txtEtiquetaTarea">
-                                        <option value="1" selected>Selecciona una etiqueta</option>
-                                        <!-- <option th:each="etiqueta: ${listaEtiquetas}" th:value="${etiqueta.id_etiqueta}"
-                                            th:text="${etiqueta.nombre}"
-                                            th:style="'color:' + ${etiqueta.color}"></option> -->
+                                    <select class="form-select" name="txtEtiquetaTarea" id="txtEtiquetaTarea" required>
+                                        <option value="" selected>Selecciona una etiqueta</option>
+                                        <?php
+                                        foreach ($etiquetas as $etiqueta) {
+                                        ?>
+                                            <option value="<?php echo $etiqueta['id'] ?>"><?php echo $etiqueta['nombre'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="mb-3">
