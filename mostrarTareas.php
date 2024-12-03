@@ -101,7 +101,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                             &fechavencTarea=<?php echo $tarea['fecha_venc'] ?>
                             &idEtiqueta=<?php echo $tarea['id_etiqueta'] ?>
                             &etiquetaNombre=<?php echo $etiquetaSeleccionada['nombre'] ?>
-                            &listaNombre=<?php echo $listaSeleccionada['nombre'] ?>">
+                            &idLista=<?php echo $listaSeleccionada['id'] ?>">
 
                                 <div class="checkbox-wrapper-12">
                                     <div class="cbx">

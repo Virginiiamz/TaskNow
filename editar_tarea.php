@@ -10,7 +10,7 @@ if (isset($_REQUEST['idTarea'])) {
     $fechavencTarea = $_REQUEST['fechavencTarea'];
     $idEtiqueta = $_REQUEST['idEtiqueta'];
     $nombreEtiqueta = $_REQUEST['etiquetaNombre'];
-    $listaSeleccionada = $_REQUEST['listaNombre'];
+    $idLista = $_REQUEST['idLista'];
 }
 
 ?>
@@ -89,24 +89,26 @@ if (isset($_REQUEST['idTarea'])) {
             <section>
                 <h2 class="text-white m-3">Editar tarea</h2>
                 <!-- Modal Editar -->
-                <form class="form m-3 formularioEditarTarea">
+                <form action="procesar_editar_tarea.php" class="form m-3 formularioEditarTarea" method="post">
+                    <input type="hidden" name="txtModificarId" value="<?php echo $idTarea ?>">
+                    <input type="hidden" name="idLista" value="<?php echo $idLista ?>">
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="descripcion" class="form-label text-white fs-5">Descripcion:</label>
-                            <input type="text" class="form-control" id="descripcion" value="<?php echo $descripcionTarea ?>">
+                            <label for="txtModificarDescripcion" class="form-label text-white fs-5">Descripcion:</label>
+                            <input type="text" class="form-control" id="txtModificarDescripcion" name="txtModificarDescripcion" value="<?php echo $descripcionTarea ?>">
                         </div>
                     </div>
                     <div class="row mb-3 mb-md-0">
                         <div class="col-md-2 mb-3">
-                            <label for="descripcion" class="form-label text-white fs-5">Estado:</label>
-                            <select class="form-select" name="" id="">
+                            <label for="txtModificarEstado" class="form-label text-white fs-5">Estado:</label>
+                            <select class="form-select" name="txtModificarEstado" id="txtModificarEstado">
                                 <option <?php echo $esrealizadaTarea == 1 ? 'selected' : '' ?> value="0">No completada</option>
                                 <option <?php echo $esrealizadaTarea == 1 ? 'selected' : ''; ?> value="1">Completada</option>
                             </select>
                         </div>
                         <div class="col-md-10 mb-3">
-                            <label for="txtEtiquetaTarea" class="form-label text-white fs-5">Etiqueta: </label>
-                            <select class="form-select" name="txtEtiquetaTarea" id="txtEtiquetaTarea">
+                            <label for="txtModificarEtiqueta" class="form-label text-white fs-5">Etiqueta: </label>
+                            <select class="form-select" name="txtModificarEtiqueta" id="txtModificarEtiqueta">
                                 <option value="1" selected>Selecciona una etiqueta</option>
                                 <!-- <option th:each="etiqueta: ${listaEtiquetas}" th:value="${etiqueta.id_etiqueta}"
                                             th:text="${etiqueta.nombre}"
