@@ -1,7 +1,4 @@
 <?php
-$listas = require_once('get_listas.php');
-$usuario = require_once('get_usuario.php');
-$etiquetas = require_once('get_etiquetas.php');
 
 if (isset($_REQUEST['idTarea'])) {
     // Recuperar los parámetros
@@ -12,6 +9,10 @@ if (isset($_REQUEST['idTarea'])) {
     $idEtiqueta = $_REQUEST['idEtiqueta'];
     $nombreEtiqueta = $_REQUEST['etiquetaNombre'];
     $idLista = $_REQUEST['idLista'];
+
+    $etiquetas = require_once('get_etiquetas.php');
+    $listas = require_once('get_listas.php');
+    $usuario = require_once('get_usuario.php');
 }
 
 ?>
@@ -113,7 +114,7 @@ if (isset($_REQUEST['idTarea'])) {
                                 <?php
                                 foreach ($etiquetas as $etiqueta) {
                                 ?>
-                                    <option <?php echo $idEtiqueta==$etiqueta['id'] ? 'selected' : ''; ?> value="<?php echo $etiqueta['id'] ?>"><?php echo $etiqueta['nombre'] ?></option>
+                                    <option <?php echo $idEtiqueta == $etiqueta['id'] ? 'selected' : ''; ?> value="<?php echo $etiqueta['id'] ?>"><?php echo $etiqueta['nombre'] ?></option>
                                 <?php
                                 }
                                 ?>
