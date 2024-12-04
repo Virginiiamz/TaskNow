@@ -114,6 +114,10 @@ sidebar {
     width: 15rem;
     height: auto;
     transition: 0.7s;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navegacionEnlaces_background:hover {
@@ -145,6 +149,14 @@ sidebar {
 
 #navegacionEnlaces_active:hover {
     background-color: white;
+}
+
+.bi-x-lg {
+    color: var(--color-terciario)
+}
+
+.navegacionEnlaces_background:hover .bi-x-lg {
+    color: var(--color-secundario);
 }
 
 /* Pantalla Principal */

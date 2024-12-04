@@ -58,7 +58,7 @@ $usuario = require_once('get_usuario.php');
                                             class="bi bi-journal-check me-1"></i><span><?php echo $lista['nombre'] ?></span>
                                     </p>
                                     <a href="">
-                                        <i class="bi bi-x-lg"></i>
+                                        <i class="bi bi-x-lg me-3"></i>
                                     </a>
                                 </div>
                             </a>
