@@ -82,8 +82,7 @@ if (isset($_REQUEST['idTarea'])) {
         </sidebar>
         <main class="pantallaPrincipal_contenido" style="height: 100vh;">
             <section class="pantallaPrincipal_contenido--header">
-                <a href="" class="header_btnCrear fs-5" data-bs-toggle="modal" data-bs-target="#modalCrearTarea"><i
-                        class="bi bi-plus-circle-fill me-1"></i>Crear tarea</a>
+                <a href="get_tarea.php?idLista=<?php echo $idLista ?>" class="header_btnCrear fs-5"><i class="bi bi-arrow-left-circle-fill me-1 fs-5"></i>Volver</a>
                 <a href="" class="header_btnUsuario fs-5"><span><?php echo $usuario['username'] ?></span>
                     <i class="bi bi-person-circle ms-1 fs-5"></i></a>
             </section>
