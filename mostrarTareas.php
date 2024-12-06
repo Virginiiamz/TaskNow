@@ -1,6 +1,6 @@
 <?php
+session_start();
 $listas = require_once('get_listas.php');
-$usuario = require_once('get_usuario.php');
 
 if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['etiquetas'])) {
     // Decodificar el JSON que recibimos de la URL
@@ -46,7 +46,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                             <div class="navegacionEnlaces_usuario">
                                 <p class="fs-5 ms-2 navegacionEnlaces_usuario--enlace"><i
                                         class="bi bi-person-circle me-1"></i>
-                                    <span><?php echo $usuario['username'] ?></span>
+                                    <span><?php echo $_SESSION['usuario']['username'] ?></span>
                                 </p>
                             </div>
                         </a>
@@ -81,7 +81,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
             <section class="pantallaPrincipal_contenido--header">
                 <a href="" class="header_btnCrear fs-5" data-bs-toggle="modal" data-bs-target="#modalCrearTarea"><i
                         class="bi bi-plus-circle-fill me-1"></i>Crear tarea</a>
-                <a href="" class="header_btnUsuario fs-5"><span><?php echo $usuario['username'] ?></span>
+                <a href="" class="header_btnUsuario fs-5"><span><?php echo $_SESSION['usuario']['username'] ?></span>
                     <i class="bi bi-person-circle ms-1 fs-5"></i></a>
             </section>
 

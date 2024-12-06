@@ -1,6 +1,6 @@
 <?php
+session_start();
 $listas = require_once('get_listas.php');
-$usuario = require_once('get_usuario.php');
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ $usuario = require_once('get_usuario.php');
                             <div class="navegacionEnlaces_usuario">
                                 <p class="fs-5 ms-2 navegacionEnlaces_usuario--enlace"><i
                                         class="bi bi-person-circle me-1"></i>
-                                    <span><?php echo $usuario['username'] ?></span>
+                                    <span><?php $_SESSION['usuario']['username'] ?></span>
                                 </p>
                             </div>
                         </a>
@@ -73,7 +73,7 @@ $usuario = require_once('get_usuario.php');
             <section class="pantallaPrincipal_contenido--header">
                 <a href="" class="header_btnCrear fs-5" data-bs-toggle="modal" data-bs-target="#modalCrearLista"><i
                         class="bi bi-plus-circle-fill me-1"></i>Crear lista</a>
-                <a href="" class="header_btnUsuario fs-5"><span><?php echo $usuario['username'] ?></span><i class="bi bi-person-circle ms-1 fs-5"></i></a>
+                <a href="" class="header_btnUsuario fs-5"><span><?php echo $_SESSION['usuario']['username'] ?></span><i class="bi bi-person-circle ms-1 fs-5"></i></a>
             </section>
 
             <section class="pantallaPrincipal_contenido--tituloInicio">
