@@ -38,7 +38,7 @@ $listas = require_once('get_listas.php');
                             <div class="navegacionEnlaces_usuario">
                                 <p class="fs-5 ms-2 navegacionEnlaces_usuario--enlace"><i
                                         class="bi bi-person-circle me-1"></i>
-                                    <span><?php $_SESSION['usuario']['username'] ?></span>
+                                    <span><?php echo $_SESSION['usuario']['username'] ?></span>
                                 </p>
                             </div>
                         </a>
