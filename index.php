@@ -57,7 +57,7 @@ $usuario = require_once('get_usuario.php');
                                     <p class="navegacionEnlaces_background--enlace fs-5 ms-2"><i
                                             class="bi bi-journal-check me-1"></i><span><?php echo $lista['nombre'] ?></span>
                                     </p>
-                                    <a href="">
+                                    <a href="procesar_borrar_lista.php?idLista=<?php echo $lista['id'] ?>">
                                         <i class="bi bi-x-lg me-3"></i>
                                     </a>
                                 </div>
