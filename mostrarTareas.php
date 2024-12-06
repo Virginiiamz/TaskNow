@@ -42,7 +42,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
 
                 <div class="collapse navbar-collapse navegacionEnlaces" id="navbarNavAltMarkup">
                     <div class="navbar-nav d-flex flex-column gap-2 align-items-center">
-                        <a href="" class="text-decoration-none">
+                        <a href="gestionar_usuario.php" class="text-decoration-none">
                             <div class="navegacionEnlaces_usuario">
                                 <p class="fs-5 ms-2 navegacionEnlaces_usuario--enlace"><i
                                         class="bi bi-person-circle me-1"></i>
@@ -50,7 +50,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
                                 </p>
                             </div>
                         </a>
-                        <a href="index.php" class="navegacionEnlaces_background text-decoration-none">
+                        <a href="inicio.php" class="navegacionEnlaces_background text-decoration-none">
                             <div class="navegacionEnlaces_background" id="navegacionEnlaces_active">
                                 <p class="navegacionEnlaces_background--enlace fs-5 ms-2"
                                     id="navegacionEnlaces_active--enlace"><i class="bi bi-house-door-fill me-1"></i>
@@ -81,7 +81,7 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['
             <section class="pantallaPrincipal_contenido--header">
                 <a href="" class="header_btnCrear fs-5" data-bs-toggle="modal" data-bs-target="#modalCrearTarea"><i
                         class="bi bi-plus-circle-fill me-1"></i>Crear tarea</a>
-                <a href="" class="header_btnUsuario fs-5"><span><?php echo $_SESSION['usuario']['username'] ?></span>
+                <a href="gestionar_usuario.php" class="header_btnUsuario fs-5"><span><?php echo $_SESSION['usuario']['username'] ?></span>
                     <i class="bi bi-person-circle ms-1 fs-5"></i></a>
             </section>
 

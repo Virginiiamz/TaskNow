@@ -8,7 +8,7 @@ $listas = require_once('get_listas.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - TaskNow</title>
+    <title>Gestionar Usuario - TaskNow</title>
     <link rel="stylesheet" href="src/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -34,7 +34,7 @@ $listas = require_once('get_listas.php');
 
                 <div class="collapse navbar-collapse navegacionEnlaces" id="navbarNavAltMarkup">
                     <div class="navbar-nav d-flex flex-column gap-2 align-items-center">
-                        <a href="gestionar_usuario.php" class="text-decoration-none">
+                        <a href="" class="text-decoration-none">
                             <div class="navegacionEnlaces_usuario">
                                 <p class="fs-5 ms-2 navegacionEnlaces_usuario--enlace"><i
                                         class="bi bi-person-circle me-1"></i>
@@ -69,66 +69,18 @@ $listas = require_once('get_listas.php');
                 </div>
             </nav>
         </sidebar>
-        <main class="pantallaPrincipal_contenido" style="height: 100vh;">
+        <main class="pantallaPrincipal_contenido" style="min-height: 100vh;">
             <section class="pantallaPrincipal_contenido--header">
-                <a href="" class="header_btnCrear fs-5" data-bs-toggle="modal" data-bs-target="#modalCrearLista"><i
-                        class="bi bi-plus-circle-fill me-1"></i>Crear lista</a>
-                <a href="gestionar_usuario.php" class="header_btnUsuario fs-5"><span><?php echo $_SESSION['usuario']['username'] ?></span><i class="bi bi-person-circle ms-1 fs-5"></i></a>
+                <a href="" class="header_btnCrear fs-5" data-bs-toggle="modal" data-bs-target="#modalCrearTarea"><i
+                        class="bi bi-plus-circle-fill me-1"></i>Crear tarea</a>
+                <a href="" class="header_btnUsuario fs-5"><span><?php echo $_SESSION['usuario']['username'] ?></span>
+                    <i class="bi bi-person-circle ms-1 fs-5"></i></a>
             </section>
 
-            <section class="pantallaPrincipal_contenido--tituloInicio">
-                <h2 class="text-white m-3">TAREAS PENDIENTES</h2>
-                <a class="tituloInicio_btnEtiquetas" href="" data-bs-toggle="modal"
-                    data-bs-target="#modalCrearEtiqueta"><i class="bi bi-bookmark-fill me-1"></i>Crear etiquetas</a>
+            <section>
+                <h2 class="text-white m-3">Gestionar usuario</h2>
+
             </section>
-
-            <!-- Modal crear etiqueta -->
-            <div class="modal fade" id="modalCrearEtiqueta" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Etiqueta</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="procesar_alta_etiqueta.php" method="post">
-                                <div class="mb-3">
-                                    <label for="nombreEtiqueta" class="form-label">Nombre: </label>
-                                    <input type="text" class="form-control" id="nombreEtiqueta" name="nombreEtiqueta">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="colorEtiqueta" class="form-label">Color: </label>
-                                    <input type="color" class="form-control" id="colorEtiqueta" name="colorEtiqueta">
-                                </div>
-                                <button type="submit" class="btn_formularios text-white">Crear</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal crear lista -->
-            <div class="modal fade" id="modalCrearLista" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Lista</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="procesar_alta_lista.php" method="post">
-                                <div class="mb-3">
-                                    <label for="txtNombreLista" class="form-label">Nombre: </label>
-                                    <input type="text" class="form-control" id="txtNombreLista" name="txtNombreLista" required>
-                                </div>
-                                <button type="submit" class="btn_formularios text-white">Crear</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
     </section>
 
