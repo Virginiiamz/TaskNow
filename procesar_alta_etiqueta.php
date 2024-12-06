@@ -25,4 +25,4 @@ if (mysqli_errno($conexion) != 0) {
 }
 // Redireccionar tras 5 segundos al index.
 // Siempre debe ir antes de DOCTYPE
-header("refresh:0;url=index.php");
+header("refresh:0;url=inicio.php");

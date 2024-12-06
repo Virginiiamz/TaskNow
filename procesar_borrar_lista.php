@@ -22,4 +22,4 @@ if (mysqli_errno($conexion) != 0) {
     $mensaje =  "<h2 class='text-center mt-5'>La lista se ha borrado correctamente</h2>";
 }
 
-header("refresh:0;url=index.php");
+header("refresh:0;url=inicio.php");
