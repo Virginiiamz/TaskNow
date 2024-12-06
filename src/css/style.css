@@ -42,6 +42,86 @@ sidebar {
     font-weight: 600;
 }
 
+/* Pagina Iniciar Sesion */
+.pantallaInicioSesion {
+    min-height: 100vh;
+    background-color: var(--color-secundario);
+    display: flex;
+    align-items: center;
+}
+
+.pantallaInicioSesion_contenido {
+    width: 100%;
+}
+
+.pantallaInicioSesion_contenido--logo {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    max-width: 30%;
+}
+
+.pantallaInicioSesion_contenido--logo img {
+    width: 6rem;
+}
+
+.pantallaInicioSesion_contenido--formulario {
+    max-width: 30%;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: var(--color-principal);
+    border-radius: 8px;
+}
+
+.pantallaInicioSesion_contenido--formulario .formularioTitulo {
+    text-align: center;
+    margin: 0.6rem auto;
+    color: white;
+    font-weight: lighter;
+}
+
+.pantallaInicioSesion_contenido--formulario label {
+    color: white;
+    font-weight: lighter;
+}
+
+.pantallaInicioSesion_contenido--formulario .formularioInput {
+    margin-bottom: 0.8rem;
+    background-color: var(--color-secundario);
+    border-color: var(--color-terciario);
+}
+
+.pantallaInicioSesion_contenido--formulario .formularioInput:focus {
+    margin-bottom: 0.8rem;
+    background-color: var(--color-secundario);
+    border-color: var(--color-terciario);
+    color: var(--color-terciario);
+    box-shadow: 0 0 5px var(--color-terciario);
+}
+
+.pantallaPrincipal_contenido--enlaceRegistro {
+    border: 2px solid var(--color-principal);
+    border-radius: 8px;
+    max-width: 30%;
+    color: white;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4rem;
+    font-weight: lighter;
+}
+
+.enlaceRegistro_parrafo {
+    margin: 0;
+}
+
+.enlaceRegistro_parrafo a {
+    text-decoration: none;
+    color: var(--color-terciario);
+}
+
 /* Pagina Inicio */
 
 .pantallaPrincipal {
@@ -402,6 +482,16 @@ sidebar {
 
 @media screen and (max-width:768px) {
 
+    /* Pagina Iniciar Sesion */
+
+    .pantallaInicioSesion_contenido--formulario {
+        max-width: 90%;
+    }
+
+    .pantallaPrincipal_contenido--enlaceRegistro {
+        max-width: 90%;
+    }
+
     .navegacionEnlaces_usuario {
         display: block;
         align-items: center;
@@ -463,4 +553,14 @@ sidebar {
 
 }
 
-@media screen and (min-width: 768px) and (max-width: 992px) {}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    /* Pagina Iniciar Sesion */
+
+    .pantallaInicioSesion_contenido--formulario {
+        max-width: 60%;
+    }
+
+    .pantallaPrincipal_contenido--enlaceRegistro {
+        max-width: 60%;
+    }
+}
