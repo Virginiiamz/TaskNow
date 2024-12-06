@@ -19,12 +19,4 @@ if (mysqli_num_rows($resultado) > 0) {
 } else {
     header("Location: index.php?noCorrecto=true");
 }
-
-// $listas = [];
-
-// while ($fila = mysqli_fetch_assoc($resultado)) {
-//     $listas[] = $fila;
-// }
-
-// return $listas;
 ?>
