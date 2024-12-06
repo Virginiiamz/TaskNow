@@ -17,12 +17,19 @@
             <figure class="pantallaInicioSesion_contenido--logo">
                 <img src="src/img/Logo_tipo2.png" alt="Logo de la pagina">
             </figure>
-            <form class="form pantallaInicioSesion_contenido--formulario" action="" method="post">
+            <form class="form pantallaInicioSesion_contenido--formulario" action="procesar_iniciar_sesion.php" method="get">
                 <h4 class="formularioTitulo">Iniciar sesión en TaskNow</h4>
                 <label class="form-label" for="txtUsernameLogin">Nombre de usuario: </label>
                 <input type="text" class="form-control formularioInput" id="txtUsernameLogin" name="txtUsernameLogin" required>
                 <label class="form-label" for="txtPasswordLogin">Contraseña: </label>
                 <input type="password" class="form-control formularioInput" name="txtPasswordLogin" id="txtPasswordLogin" required>
+                <?php
+                if (isset($_REQUEST['noCorrecto'])) {
+                ?>
+                    <p class="text-white fw-lighter">El usuario no existe o algun dato no es correcto</p>
+                <?php
+                }
+                ?>
                 <input type="submit" value="Entrar" name="btnIniciarSesion" class="btn_formularios">
             </form>
             <div class="pantallaPrincipal_contenido--enlaceRegistro">
