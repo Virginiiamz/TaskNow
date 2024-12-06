@@ -1,6 +1,7 @@
 <?php
 session_start();
 $listas = require_once('get_listas.php');
+$etiquetas = require_once('get_etiquetas.php');
 ?>
 
 <!DOCTYPE html>
@@ -71,15 +72,24 @@ $listas = require_once('get_listas.php');
         </sidebar>
         <main class="pantallaPrincipal_contenido" style="min-height: 100vh;">
             <section class="pantallaPrincipal_contenido--header">
-                <a href="" class="header_btnCrear fs-5" data-bs-toggle="modal" data-bs-target="#modalCrearTarea"><i
-                        class="bi bi-plus-circle-fill me-1"></i>Crear tarea</a>
+                <a href="procesar_cerrar_sesion.php" class="header_btnCrear fs-5"><i class="bi bi-reply-all-fill me-1 fs-5"></i> Cerrar sesión</a>
                 <a href="" class="header_btnUsuario fs-5"><span><?php echo $_SESSION['usuario']['username'] ?></span>
                     <i class="bi bi-person-circle ms-1 fs-5"></i></a>
             </section>
 
             <section>
-                <h2 class="text-white m-3">Gestionar usuario</h2>
-
+                <h2 class="text-white m-3">Gestionar perfil</h2>
+                <div class="gestionarPerfil">
+                    <figure class="gestionarPerfil_contenido">
+                        <i class="bi bi-bookmark-star-fill"></i>
+                    </figure>
+                    <figure class="gestionarPerfil_contenido">
+                        <i class="bi bi-bookmark-x-fill"></i>
+                    </figure>
+                    <figure class="gestionarPerfil_contenido">
+                        <i class="bi bi-pen-fill"></i>
+                    </figure>
+                </div>
             </section>
         </main>
     </section>

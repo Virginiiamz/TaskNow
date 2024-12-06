@@ -480,6 +480,30 @@ sidebar {
     padding: 1rem;
 }
 
+/* Pantalla Gestionar Perfil */
+
+.gestionarPerfil {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem;
+    justify-content: center;
+}
+
+.gestionarPerfil_contenido {
+    height: 18rem;
+    background-color: var(--color-secundario);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gestionarPerfil_contenido i {
+    font-size: 5rem;
+    color: var(--color-terciario);
+}
+
 @media screen and (max-width:768px) {
 
     /* Pagina Iniciar Sesion */
