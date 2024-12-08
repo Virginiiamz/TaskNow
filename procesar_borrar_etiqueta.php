@@ -3,7 +3,7 @@ require_once("funcionesBD.php");
 $conexion = obtenerConexion();
 
 // Recuperar parámetros
-$idetiqueta = $_REQUEST['borrarEtiquetaId'];
+$idetiqueta = $_REQUEST['eliminarEtiqueta'];
 
 // No validamos, suponemos que la entrada de datos es correcta
 

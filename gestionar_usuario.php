@@ -85,7 +85,7 @@ $listas = require_once('get_listas.php');
                             <i class="bi bi-bookmark-fill"></i>
                         </figure>
                     </a>
-                    <a href="">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEliminarEtiqueta">
                         <figure class="gestionarPerfil_contenido">
                             <i class="bi bi-bookmark-x-fill"></i>
                         </figure>
@@ -123,6 +123,37 @@ $listas = require_once('get_listas.php');
                                     </select>
                                 </div>
                                 <button type="submit" class="btn_formularios text-white">Seleccionar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal eliminar etiqueta -->
+            <div class="modal fade" id="modalEliminarEtiqueta" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar etiqueta</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="procesar_borrar_etiqueta.php" method="post">
+                                <div class="mb-3">
+                                    <label for="eliminarEtiqueta" class="form-label">Etiqueta: </label>
+                                    <select class="form-select" name="eliminarEtiqueta" id="eliminarEtiqueta" required>
+                                        <option value="" selected>Selecciona una etiqueta</option>
+                                        <?php
+                                        foreach ($etiquetas as $etiqueta) {
+                                        ?>
+                                            <option value="<?php echo $etiqueta['id'] ?>"><?php echo $etiqueta['nombre'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn_formularios text-white">Eliminar</button>
                             </form>
                         </div>
                     </div>
