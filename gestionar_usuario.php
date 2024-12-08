@@ -35,7 +35,7 @@ $listas = require_once('get_listas.php');
 
                 <div class="collapse navbar-collapse navegacionEnlaces" id="navbarNavAltMarkup">
                     <div class="navbar-nav d-flex flex-column gap-2 align-items-center">
-                        <a href="" class="text-decoration-none">
+                        <a href="gestionar_usuario.php" class="text-decoration-none">
                             <div class="navegacionEnlaces_usuario">
                                 <p class="fs-5 ms-2 navegacionEnlaces_usuario--enlace"><i
                                         class="bi bi-person-circle me-1"></i>
@@ -73,14 +73,14 @@ $listas = require_once('get_listas.php');
         <main class="pantallaPrincipal_contenido" style="min-height: 100vh;">
             <section class="pantallaPrincipal_contenido--header">
                 <a href="procesar_cerrar_sesion.php" class="header_btnCrear fs-5"><i class="bi bi-reply-all-fill me-1 fs-5"></i> Cerrar sesión</a>
-                <a href="" class="header_btnUsuario fs-5"><span><?php echo $_SESSION['usuario']['username'] ?></span>
+                <a href="gestionar_usuario.php" class="header_btnUsuario fs-5"><span><?php echo $_SESSION['usuario']['username'] ?></span>
                     <i class="bi bi-person-circle ms-1 fs-5"></i></a>
             </section>
 
             <section>
                 <h2 class="text-white m-3">Gestionar perfil</h2>
                 <div class="gestionarPerfil">
-                    <a href="">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#modalModificarEtiqueta">
                         <figure class="gestionarPerfil_contenido">
                             <i class="bi bi-bookmark-fill"></i>
                         </figure>
@@ -97,6 +97,37 @@ $listas = require_once('get_listas.php');
                     </a>
                 </div>
             </section>
+
+            <!-- Modal modificar etiqueta -->
+            <div class="modal fade" id="modalModificarEtiqueta" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar etiqueta</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="editar_etiqueta.php" method="post">
+                                <div class="mb-3">
+                                    <label for="modEtiqueta" class="form-label">Etiqueta: </label>
+                                    <select class="form-select" name="modEtiqueta" id="modEtiqueta" required>
+                                        <option value="" selected>Selecciona una etiqueta</option>
+                                        <?php
+                                        foreach ($etiquetas as $etiqueta) {
+                                        ?>
+                                            <option value="<?php echo $etiqueta['id'] ?>"><?php echo $etiqueta['nombre'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn_formularios text-white">Seleccionar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </section>
 

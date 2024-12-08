@@ -1,20 +1,16 @@
 <?php
+session_start();
+$etiquetas = require_once('get_etiquetas.php');
+$listas = require_once('get_listas.php');
+if (isset($_POST['modEtiqueta'])) {
+    $idEtiqueta = $_POST['modEtiqueta'];
 
-if (isset($_REQUEST['idTarea'])) {
-    // Recuperar los parámetros
-    $idTarea = $_REQUEST['idTarea'];
-    $descripcionTarea = $_REQUEST['descripcionTarea'];
-    $esrealizadaTarea = $_REQUEST['esrealizadaTarea'];
-    $fechavencTarea = $_REQUEST['fechavencTarea'];
-    $idEtiqueta = $_REQUEST['idEtiqueta'];
-    $nombreEtiqueta = $_REQUEST['etiquetaNombre'];
-    $idLista = $_REQUEST['idLista'];
-
-    $etiquetas = require_once('get_etiquetas.php');
-    $listas = require_once('get_listas.php');
-    $usuario = $_SESSION['usuario'];
+    foreach ($etiquetas as $etiqueta) {
+        if ($etiqueta['id'] == $idEtiqueta) {
+            $etiquetaSeleccionada = $etiqueta;
+        }
+    }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +18,7 @@ if (isset($_REQUEST['idTarea'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - TaskNow</title>
+    <title>Editar Etiqueta - TaskNow</title>
     <link rel="stylesheet" href="src/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -52,11 +48,11 @@ if (isset($_REQUEST['idTarea'])) {
                             <div class="navegacionEnlaces_usuario">
                                 <p class="fs-5 ms-2 navegacionEnlaces_usuario--enlace"><i
                                         class="bi bi-person-circle me-1"></i>
-                                    <span><?php echo $usuario['username'] ?></span>
+                                    <span><?php echo $_SESSION['usuario']['username'] ?></span>
                                 </p>
                             </div>
                         </a>
-                        <a href="index.php" class="navegacionEnlaces_background text-decoration-none">
+                        <a href="inicio.php" class="navegacionEnlaces_background text-decoration-none">
                             <div class="navegacionEnlaces_background" id="navegacionEnlaces_active">
                                 <p class="navegacionEnlaces_background--enlace fs-5 ms-2"
                                     id="navegacionEnlaces_active--enlace"><i class="bi bi-house-door-fill me-1"></i>
@@ -71,6 +67,9 @@ if (isset($_REQUEST['idTarea'])) {
                                     <p class="navegacionEnlaces_background--enlace fs-5 ms-2"><i
                                             class="bi bi-journal-check me-1"></i><span><?php echo $lista['nombre'] ?></span>
                                     </p>
+                                    <a href="procesar_borrar_lista.php?idLista=<?php echo $lista['id'] ?>">
+                                        <i class="bi bi-x-lg me-3"></i>
+                                    </a>
                                 </div>
                             </a>
                         <?php
@@ -80,44 +79,27 @@ if (isset($_REQUEST['idTarea'])) {
                 </div>
             </nav>
         </sidebar>
-        <main class="pantallaPrincipal_contenido" style="height: 100vh;">
+        <main class="pantallaPrincipal_contenido" style="min-height: 100vh;">
             <section class="pantallaPrincipal_contenido--header">
-                <a href="get_tarea.php?idLista=<?php echo $idLista ?>" class="header_btnCrear fs-5"><i class="bi bi-arrow-left-circle-fill me-1 fs-5"></i>Volver</a>
-                <a href="gestionar_usuario.php" class="header_btnUsuario fs-5"><span><?php echo $usuario['username'] ?></span>
+                <a href="procesar_cerrar_sesion.php" class="header_btnCrear fs-5"><i class="bi bi-reply-all-fill me-1 fs-5"></i> Cerrar sesión</a>
+                <a href="gestionar_usuario.php" class="header_btnUsuario fs-5"><span><?php echo $_SESSION['usuario']['username'] ?></span>
                     <i class="bi bi-person-circle ms-1 fs-5"></i></a>
             </section>
 
             <section>
-                <h2 class="text-white m-3">Editar tarea</h2>
-                <!-- Formulario Editar -->
-                <form action="procesar_editar_tarea.php" class="form m-3 formularioEditarTarea" method="post">
-                    <input type="hidden" name="txtModificarId" value="<?php echo $idTarea ?>">
-                    <input type="hidden" name="idLista" value="<?php echo $idLista ?>">
+                <h2 class="text-white m-3">Editar etiqueta</h2>
+                <form action="procesar_editar_etiqueta.php" class="form m-3 formularioEditarTarea" method="post">
+                    <input type="hidden" name="txtModificarId" value="<?php echo $etiquetaSeleccionada['id'] ?>">
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="txtModificarDescripcion" class="form-label text-white fs-5">Descripcion:</label>
-                            <input type="text" class="form-control" id="txtModificarDescripcion" name="txtModificarDescripcion" value="<?php echo $descripcionTarea ?>">
+                            <label for="txtModificarNombre" class="form-label text-white fs-5">Nombre:</label>
+                            <input type="text" class="form-control" name="txtModificarNombre" id="txtModificarNombre" value="<?php echo $etiquetaSeleccionada['nombre'] ?>">
                         </div>
                     </div>
-                    <div class="row mb-3 mb-md-0">
-                        <div class="col-md-2 mb-3">
-                            <label for="txtModificarEstado" class="form-label text-white fs-5">Estado:</label>
-                            <select class="form-select" name="txtModificarEstado" id="txtModificarEstado">
-                                <option <?php echo $esrealizadaTarea == 1 ? 'selected' : '' ?> value="0">No completada</option>
-                                <option <?php echo $esrealizadaTarea == 1 ? 'selected' : ''; ?> value="1">Completada</option>
-                            </select>
-                        </div>
-                        <div class="col-md-10 mb-3">
-                            <label for="txtModificarEtiqueta" class="form-label text-white fs-5">Etiqueta: </label>
-                            <select class="form-select" name="txtModificarEtiqueta" id="txtModificarEtiqueta" required>
-                                <?php
-                                foreach ($etiquetas as $etiqueta) {
-                                ?>
-                                    <option <?php echo $idEtiqueta == $etiqueta['id'] ? 'selected' : ''; ?> value="<?php echo $etiqueta['id'] ?>"><?php echo $etiqueta['nombre'] ?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="txtModificarColor" class="form-label text-white fs-5">Color: </label>
+                            <input type="color" class="form-control" name="txtModificarColor" id="txtModificarColor" value="<?php echo $etiquetaSeleccionada['color'] ?>">
                         </div>
                     </div>
                     <button type="submit" class="btn_formularios fs-5">Guardar</button>
