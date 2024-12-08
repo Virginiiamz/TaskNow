@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("funcionesBD.php");
 $conexion = obtenerConexion();
 
@@ -7,10 +8,11 @@ $nombreEtiqueta = $_POST['nombreEtiqueta'];
 $colorEtiqueta = $_POST['colorEtiqueta'];
 
 // No validamos, suponemos que la entrada de datos es correcta
+$idUsuario = $_SESSION['usuario']['id'];
 
 // Definir insert
 $sql = "INSERT INTO etiqueta(`id`, `nombre`, `color`, `id_usuario`) 
-                VALUES (null,'" . $nombreEtiqueta . "', '" . $colorEtiqueta . "', 1);";
+                VALUES (null,'" . $nombreEtiqueta . "', '" . $colorEtiqueta . "', $idUsuario);";
 
 // Ejecutar consulta
 $resultado = mysqli_query($conexion, $sql);

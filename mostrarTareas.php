@@ -1,12 +1,12 @@
 <?php
 session_start();
 $listas = require_once('get_listas.php');
+$etiquetas = require_once('get_etiquetas.php');
 
-if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada']) && isset($_GET['etiquetas'])) {
+if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada'])) {
     // Decodificar el JSON que recibimos de la URL
     $tareas = json_decode($_GET['tareas'], true);  // El segundo parámetro 'true' convierte el JSON a un array asociativo
     $listaSeleccionada = json_decode($_GET['listaSeleccionada'], true);
-    $etiquetas = json_decode($_GET['etiquetas'], true);
     // var_dump($tareas);
 }
 ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("funcionesBD.php");
 $conexion = obtenerConexion();
 
@@ -6,10 +7,11 @@ $conexion = obtenerConexion();
 $nombreLista = $_POST['txtNombreLista'];
 
 // No validamos, suponemos que la entrada de datos es correcta
+$idUsuario = $_SESSION['usuario']['id'];
 
 // Definir insert
 $sql = "INSERT INTO lista(`id`, `nombre`, `id_usuario`) 
-                VALUES (null,'" . $nombreLista . "', 1);";
+                VALUES (null,'" . $nombreLista . "', $idUsuario);";
 
 // Ejecutar consulta
 $resultado = mysqli_query($conexion, $sql);

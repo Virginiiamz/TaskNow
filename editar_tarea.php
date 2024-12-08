@@ -12,7 +12,7 @@ if (isset($_REQUEST['idTarea'])) {
 
     $etiquetas = require_once('get_etiquetas.php');
     $listas = require_once('get_listas.php');
-    $usuario = require_once('get_usuario.php');
+    $usuario = $_SESSION['usuario'];
 }
 
 ?>
