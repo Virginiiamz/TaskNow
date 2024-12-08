@@ -81,13 +81,13 @@ $etiquetas = require_once('get_etiquetas.php');
                 <h2 class="text-white m-3">Gestionar perfil</h2>
                 <div class="gestionarPerfil">
                     <figure class="gestionarPerfil_contenido">
-                        <i class="bi bi-bookmark-star-fill"></i>
+                        <i class="bi bi-bookmark-fill"></i>
                     </figure>
                     <figure class="gestionarPerfil_contenido">
                         <i class="bi bi-bookmark-x-fill"></i>
                     </figure>
                     <figure class="gestionarPerfil_contenido">
-                        <i class="bi bi-pen-fill"></i>
+                        <i class="bi bi-person-fill-gear"></i>
                     </figure>
                 </div>
             </section>

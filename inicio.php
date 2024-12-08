@@ -79,7 +79,7 @@ $listas = require_once('get_listas.php');
             <section class="pantallaPrincipal_contenido--tituloInicio">
                 <h2 class="text-white m-3">TAREAS PENDIENTES</h2>
                 <a class="tituloInicio_btnEtiquetas" href="" data-bs-toggle="modal"
-                    data-bs-target="#modalCrearEtiqueta"><i class="bi bi-bookmark-fill me-1"></i>Crear etiquetas</a>
+                    data-bs-target="#modalCrearEtiqueta"><i class="bi bi-bookmark-plus-fill me-1"></i>Crear etiquetas</a>
             </section>
 
             <!-- Modal crear etiqueta -->
