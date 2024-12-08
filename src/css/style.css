@@ -504,6 +504,12 @@ sidebar {
     color: var(--color-terciario);
 }
 
+.gestionarPerfil_contenido:hover i {
+    color: white;
+    transition: 0.8s;
+    transform: scale(0.9);
+}
+
 @media screen and (max-width:768px) {
 
     /* Pagina Iniciar Sesion */
@@ -575,6 +581,19 @@ sidebar {
         margin-top: 0.5rem;
     }
 
+    /* Pantalla Gestionar Perfil */
+
+    .gestionarPerfil {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .gestionarPerfil_contenido {
+        height: 12rem;
+    }
+
+    .gestionarPerfil_contenido i {
+        font-size: 4rem;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
