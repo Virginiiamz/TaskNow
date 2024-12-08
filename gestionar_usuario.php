@@ -1,7 +1,7 @@
 <?php
 session_start();
-$listas = require_once('get_listas.php');
 $etiquetas = require_once('get_etiquetas.php');
+$listas = require_once('get_listas.php');
 ?>
 
 <!DOCTYPE html>
