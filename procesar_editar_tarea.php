@@ -8,6 +8,7 @@ $idlista = $_POST['idLista'];
 $descripcion = $_POST['txtModificarDescripcion'];
 $estado = $_POST['txtModificarEstado'];
 $etiqueta = $_POST['txtModificarEtiqueta'];
+$esInicio = $_POST['esInicio'];
 
 // No validamos, suponemos que la entrada de datos es correcta
 
@@ -26,4 +27,8 @@ if (mysqli_errno($conexion) != 0) {
     $mensaje =  "<h2 class='text-center mt-5'>Tarea actualizada</h2>";
 }
 
-header("refresh:0;url=get_tarea.php?idLista=$idlista");
+if ($esInicio == false) {
+    header("refresh:0;url=get_tarea.php?idLista=$idlista");
+} else {
+    header("refresh:0;url=inicio.php");
+}

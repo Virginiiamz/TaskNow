@@ -9,6 +9,7 @@ if (isset($_REQUEST['idTarea'])) {
     $idEtiqueta = $_REQUEST['idEtiqueta'];
     $nombreEtiqueta = $_REQUEST['etiquetaNombre'];
     $idLista = $_REQUEST['idLista'];
+    $esInicio = $_REQUEST['esInicio'];
 
     $etiquetas = require_once('get_etiquetas.php');
     $listas = require_once('get_listas.php');
@@ -93,6 +94,7 @@ if (isset($_REQUEST['idTarea'])) {
                 <form action="procesar_editar_tarea.php" class="form m-3 formularioEditarTarea" method="post">
                     <input type="hidden" name="txtModificarId" value="<?php echo $idTarea ?>">
                     <input type="hidden" name="idLista" value="<?php echo $idLista ?>">
+                    <input type="hidden" name="esInicio" value="<?php echo $esInicio ?>">
                     <div class="row mb-3">
                         <div class="col">
                             <label for="txtModificarDescripcion" class="form-label text-white fs-5">Descripcion:</label>

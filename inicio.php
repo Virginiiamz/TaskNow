@@ -100,7 +100,8 @@ $tareasNoCompletadas = require_once('get_tareas_noCompletadas.php');
                             &fechavencTarea=<?php echo $tarea['fecha_venc'] ?>
                             &idEtiqueta=<?php echo $tarea['id_etiqueta'] ?>
                             &etiquetaNombre=<?php echo $etiquetaSeleccionada['nombre'] ?>
-                            &idLista=<?php echo $tarea['id_lista'] ?>">
+                            &idLista=<?php echo $tarea['id_lista'] ?>
+                            &esInicio=<?php echo true ?>">
 
                                 <div class="checkbox-wrapper-12 me-auto">
                                     <div class="cbx">
