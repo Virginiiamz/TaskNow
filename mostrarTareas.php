@@ -3,11 +3,11 @@ session_start();
 $etiquetas = require_once('get_etiquetas.php');
 $listas = require_once('get_listas.php');
 
-if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada'])) {
+if (isset($_GET['tareasNoCompletadas']) && isset($_GET['listaSeleccionada']) && isset($_GET['tareasCompletadas'])) {
     // Decodificar el JSON que recibimos de la URL
-    $tareas = json_decode($_GET['tareas'], true);  // El segundo parámetro 'true' convierte el JSON a un array asociativo
+    $tareasNoCompletadas = json_decode($_GET['tareasNoCompletadas'], true);  // El segundo parámetro 'true' convierte el JSON a un array asociativo
+    $tareasCompletadas = json_decode($_GET['tareasCompletadas'], true);
     $listaSeleccionada = json_decode($_GET['listaSeleccionada'], true);
-    // var_dump($tareas);
 }
 ?>
 
@@ -87,9 +87,10 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada'])) {
 
             <section>
                 <h2 class="text-white m-3"><?php echo $listaSeleccionada['nombre'] ?></h2>
+
                 <div class="pantallaTareas">
                     <?php
-                    foreach ($tareas as $tarea) {
+                    foreach ($tareasNoCompletadas as $tarea) {
                         foreach ($etiquetas as $etiqueta) {
                             if ($etiqueta['id'] == $tarea['id_etiqueta']) {
                                 $etiquetaSeleccionada = $etiqueta;
@@ -143,6 +144,75 @@ if (isset($_GET['tareas']) && isset($_GET['listaSeleccionada'])) {
                     <?php
                     }
                     ?>
+                </div>
+
+                <div class="accordion m-3" style="border: 0;" id="accordionExample">
+                    <div class="accordion-item" style="border: 0;">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold" style="background-color: #2F2F2F; color:  #865F96; border: 0;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Tareas completadas
+                            </button>
+                        </h2>
+                        <div id="collapseOne" style="background-color: #454545; color: white; border: 0;" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <?php
+                                foreach ($tareasCompletadas as $tarea) {
+                                    foreach ($etiquetas as $etiqueta) {
+                                        if ($etiqueta['id'] == $tarea['id_etiqueta']) {
+                                            $etiquetaSeleccionada = $etiqueta;
+                                        }
+                                    }
+                                ?>
+                                    <div class="pantallaTareas_contenido">
+                                        <a class="pantallaTareas_contenido--informacion" href="editar_tarea.php?
+                            idTarea=<?php echo $tarea['id'] ?>
+                            &descripcionTarea=<?php echo $tarea['descripcion'] ?>
+                            &esrealizadaTarea=<?php echo $tarea['esrealizada'] ?>
+                            &fechavencTarea=<?php echo $tarea['fecha_venc'] ?>
+                            &idEtiqueta=<?php echo $tarea['id_etiqueta'] ?>
+                            &etiquetaNombre=<?php echo $etiquetaSeleccionada['nombre'] ?>
+                            &idLista=<?php echo $listaSeleccionada['id'] ?>">
+
+                                            <div class="checkbox-wrapper-12 me-auto">
+                                                <div class="cbx">
+                                                    <input <?php echo $tarea['esrealizada'] ? 'checked' : ''; ?> type="checkbox" id="cbx-12" disabled>
+                                                    <label for="cbx-12"></label>
+                                                    <svg fill="none" viewBox="0 0 15 14" height="12" width="13">
+                                                        <path d="M2 8.36364L6.23077 12L13 2"></path>
+                                                    </svg>
+                                                </div>
+
+                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                    <defs>
+                                                        <filter id="goo-12">
+                                                            <feGaussianBlur result="blur" stdDeviation="4" in="SourceGraphic"></feGaussianBlur>
+                                                            <feColorMatrix result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7" mode="matrix" in="blur"></feColorMatrix>
+                                                            <feBlend in2="goo-12" in="SourceGraphic"></feBlend>
+                                                        </filter>
+                                                    </defs>
+                                                </svg>
+                                            </div>
+                                            <p class="fs-5 tareaInformacion_descripcion"><?php echo $tarea['descripcion'] ?></p>
+                                            <p class="fs-5 tareaInformacion_fecha"><?php echo $tarea['fecha_venc'] ?></p>
+                                            <?php
+                                            foreach ($etiquetas as $etiqueta) {
+                                                if ($etiqueta['id'] == $tarea['id_etiqueta']) {
+                                            ?>
+                                                    <span class="tareaInformacion_etiqueta fs-5" style="background-color: <?php echo $etiqueta['color'] ?>;"><?php echo $etiqueta['nombre'] ?></span>
+
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </a>
+                                        <a class="pantallaTareas_contenido--borrarTarea fs-5" href="procesar_borrar_tarea.php?idTarea=<?php echo $tarea['id'] ?>&idLista=<?php echo $listaSeleccionada['id'] ?>"><i class="bi bi-trash3-fill text-white"></i></a>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
