@@ -1,4 +1,7 @@
 <?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 require_once("funcionesBD.php");
 $conexion = obtenerConexion();
 
@@ -18,4 +21,3 @@ while ($fila = mysqli_fetch_assoc($resultado)) {
 }
 
 return $listas;
-?>
