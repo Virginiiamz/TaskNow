@@ -1,6 +1,8 @@
 <?php
 session_start();
+$etiquetas = require_once('get_etiquetas.php');
 $listas = require_once('get_listas.php');
+$tareasNoCompletadas = require_once('get_tareas_noCompletadas.php');
 ?>
 
 <!DOCTYPE html>
@@ -80,6 +82,64 @@ $listas = require_once('get_listas.php');
                 <h2 class="text-white m-3">TAREAS PENDIENTES</h2>
                 <a class="tituloInicio_btnEtiquetas" href="" data-bs-toggle="modal"
                     data-bs-target="#modalCrearEtiqueta"><i class="bi bi-bookmark-plus-fill me-1"></i>Crear etiquetas</a>
+
+                    <div class="pantallaTareas">
+                    <?php
+                    foreach ($tareasNoCompletadas as $tarea) {
+                        foreach ($etiquetas as $etiqueta) {
+                            if ($etiqueta['id'] == $tarea['id_etiqueta']) {
+                                $etiquetaSeleccionada = $etiqueta;
+                            }
+                        }
+                    ?>
+                        <div class="pantallaTareas_contenido">
+                            <a class="pantallaTareas_contenido--informacion" href="editar_tarea.php?
+                            idTarea=<?php echo $tarea['id'] ?>
+                            &descripcionTarea=<?php echo $tarea['descripcion'] ?>
+                            &esrealizadaTarea=<?php echo $tarea['esrealizada'] ?>
+                            &fechavencTarea=<?php echo $tarea['fecha_venc'] ?>
+                            &idEtiqueta=<?php echo $tarea['id_etiqueta'] ?>
+                            &etiquetaNombre=<?php echo $etiquetaSeleccionada['nombre'] ?>
+                            &idLista=<?php echo $tarea['id_lista'] ?>">
+
+                                <div class="checkbox-wrapper-12 me-auto">
+                                    <div class="cbx">
+                                        <input <?php echo $tarea['esrealizada'] ? 'checked' : ''; ?> type="checkbox" id="cbx-12" disabled>
+                                        <label for="cbx-12"></label>
+                                        <svg fill="none" viewBox="0 0 15 14" height="12" width="13">
+                                            <path d="M2 8.36364L6.23077 12L13 2"></path>
+                                        </svg>
+                                    </div>
+
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <filter id="goo-12">
+                                                <feGaussianBlur result="blur" stdDeviation="4" in="SourceGraphic"></feGaussianBlur>
+                                                <feColorMatrix result="goo-12" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7" mode="matrix" in="blur"></feColorMatrix>
+                                                <feBlend in2="goo-12" in="SourceGraphic"></feBlend>
+                                            </filter>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <p class="fs-5 tareaInformacion_descripcion"><?php echo $tarea['descripcion'] ?></p>
+                                <p class="fs-5 tareaInformacion_fecha"><?php echo $tarea['fecha_venc'] ?></p>
+                                <?php
+                                foreach ($etiquetas as $etiqueta) {
+                                    if ($etiqueta['id'] == $tarea['id_etiqueta']) {
+                                ?>
+                                        <span class="tareaInformacion_etiqueta fs-5" style="background-color: <?php echo $etiqueta['color'] ?>;"><?php echo $etiqueta['nombre'] ?></span>
+
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </a>
+                            <a class="pantallaTareas_contenido--borrarTarea fs-5" href="procesar_borrar_tarea.php?idTarea=<?php echo $tarea['id'] ?>&idLista=<?php echo $listaSeleccionada['id'] ?>"><i class="bi bi-trash3-fill text-white"></i></a>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
             </section>
 
             <!-- Modal crear etiqueta -->
