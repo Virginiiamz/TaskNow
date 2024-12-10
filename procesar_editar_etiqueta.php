@@ -6,11 +6,12 @@ $conexion = obtenerConexion();
 $idEtiqueta = $_POST['txtModificarId'];
 $nombreEtiqueta = $_POST['txtModificarNombre'];
 $colorEtiqueta = $_POST['txtModificarColor'];
+$ordenEtiqueta = $_POST['txtModificarOrden'];
 
 // No validamos, suponemos que la entrada de datos es correcta
 
 // Definir update
-$sql = "UPDATE etiqueta SET nombre = '" . $nombreEtiqueta . "' , color = '" . $colorEtiqueta . "' WHERE id = $idEtiqueta ;";
+$sql = "UPDATE etiqueta SET nombre = '" . $nombreEtiqueta . "' , color = '" . $colorEtiqueta . "', orden_prioridad = $ordenEtiqueta WHERE id = $idEtiqueta ;";
 
 // Ejecutar consulta
 $resultado = mysqli_query($conexion, $sql);

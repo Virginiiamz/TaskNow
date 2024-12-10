@@ -6,13 +6,14 @@ $conexion = obtenerConexion();
 // Recuperar parámetros
 $nombreEtiqueta = $_POST['nombreEtiqueta'];
 $colorEtiqueta = $_POST['colorEtiqueta'];
+$ordenEtiqueta = $_POST['ordenEtiqueta'];
 
 // No validamos, suponemos que la entrada de datos es correcta
 $idUsuario = $_SESSION['usuario']['id'];
 
 // Definir insert
-$sql = "INSERT INTO etiqueta(`id`, `nombre`, `color`, `id_usuario`) 
-                VALUES (null,'" . $nombreEtiqueta . "', '" . $colorEtiqueta . "', $idUsuario);";
+$sql = "INSERT INTO etiqueta(`id`, `nombre`, `color`, `orden_prioridad`, `id_usuario`) 
+                VALUES (null,'" . $nombreEtiqueta . "', '" . $colorEtiqueta . "', $ordenEtiqueta , $idUsuario);";
 
 // Ejecutar consulta
 $resultado = mysqli_query($conexion, $sql);

@@ -98,6 +98,10 @@ $listas = require_once('get_listas.php');
                                     <input type="text" class="form-control" id="nombreEtiqueta" name="nombreEtiqueta">
                                 </div>
                                 <div class="mb-3">
+                                    <label for="ordenEtiqueta" class="form-label">Orden de prioridad: </label>
+                                    <input type="number" class="form-control" id="ordenEtiqueta" name="ordenEtiqueta" placeholder="Introduce un numero de prioridad" min="1" required>
+                                </div>
+                                <div class="mb-3">
                                     <label for="colorEtiqueta" class="form-label">Color: </label>
                                     <input type="color" class="form-control" id="colorEtiqueta" name="colorEtiqueta">
                                 </div>

@@ -98,6 +98,12 @@ if (isset($_POST['modEtiqueta'])) {
                     </div>
                     <div class="row mb-3">
                         <div class="col">
+                            <label for="txtModificarOrden" class="form-label text-white fs-5">Orden de prioridad:</label>
+                            <input type="number" class="form-control" name="txtModificarOrden" id="txtModificarOrden" value="<?php echo $etiquetaSeleccionada['orden_prioridad'] ?>">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
                             <label for="txtModificarColor" class="form-label text-white fs-5">Color: </label>
                             <input type="color" class="form-control" name="txtModificarColor" id="txtModificarColor" value="<?php echo $etiquetaSeleccionada['color'] ?>">
                         </div>
