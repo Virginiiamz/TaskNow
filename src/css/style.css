@@ -173,9 +173,10 @@ sidebar {
 .navegacionEnlaces_usuario {
     display: none;
     border: 2px solid var(--color-terciario);
-    width: 15rem;
+    width: 100%;
     height: auto;
     border-radius: 8px;
+    margin: 0;
 }
 
 .navegacionEnlaces_usuario--enlace {
@@ -185,19 +186,19 @@ sidebar {
     flex-direction: row;
     align-content: center;
     padding: 0.2rem 0rem;
-    margin: 0;
+    margin-left: 0.5rem;
 }
 
 .navegacionEnlaces_background {
     background-color: var(--color-principal);
     border-radius: 8px;
-    width: 15rem;
-    height: auto;
+    width: 100%;
     transition: 0.7s;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin: 0;
 }
 
 .navegacionEnlaces_background:hover {
@@ -211,11 +212,8 @@ sidebar {
 .navegacionEnlaces_background--enlace {
     color: var(--color-terciario);
     text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
     padding: 0.2rem 0rem;
-    margin: 0;
+    margin-left: 0.5rem;
 }
 
 #navegacionEnlaces_active {
