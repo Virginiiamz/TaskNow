@@ -71,7 +71,7 @@ $tareasNoCompletadas = require_once('get_tareas_noCompletadas.php');
                 </div>
             </nav>
         </sidebar>
-        <main class="pantallaPrincipal_contenido" style="height: 100vh;">
+        <main class="pantallaPrincipal_contenido">
             <section class="pantallaPrincipal_contenido--header">
                 <a href="" class="header_btnCrear fs-5" data-bs-toggle="modal" data-bs-target="#modalCrearLista"><i
                         class="bi bi-plus-circle-fill me-1"></i>Crear lista</a>
