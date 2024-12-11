@@ -166,7 +166,7 @@ sidebar {
 .navegacionEnlaces {
     border-top: 3px solid var(--color-terciario);
     padding: 1rem;
-    width: 90%;
+    width: 100%;
     text-align: start;
 }
 

@@ -67,6 +67,10 @@ $tareasNoCompletadas = require_once('get_tareas_noCompletadas.php');
                         <?php
                         }
                         ?>
+
+                        <div style="border: 1px solid red; width: 100%; display: flex; align-items: center; background-color: red; margin: 0;">
+                            <p class="fs-5" style="margin: 0; padding: 0.2rem 0rem; color: white;"><i class="bi bi-journal-check me-1 fs-5"></i>Prueba</p>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -83,7 +87,7 @@ $tareasNoCompletadas = require_once('get_tareas_noCompletadas.php');
                 <a class="tituloInicio_btnEtiquetas" href="" data-bs-toggle="modal"
                     data-bs-target="#modalCrearEtiqueta"><i class="bi bi-bookmark-plus-fill me-1"></i>Crear etiquetas</a>
 
-                    <div class="pantallaTareas">
+                <div class="pantallaTareas">
                     <?php
                     foreach ($tareasNoCompletadas as $tarea) {
                         foreach ($etiquetas as $etiqueta) {
