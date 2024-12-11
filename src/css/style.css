@@ -133,7 +133,8 @@ sidebar {
 }
 
 .pantallaPrincipal_sidebar {
-    width: 20%;
+    max-width: 20%;
+    min-width: 20%;
 }
 
 .pantallaPrincipal_sidebar--navegacion {
@@ -551,6 +552,13 @@ sidebar {
         display: none;
     }
 
+    /* Sidebar */
+
+    .pantallaPrincipal_sidebar {
+        max-width: 100%;
+        min-width: 100%;
+    }
+
     .pantallaTareas_contenido {
         flex-direction: column;
         padding: 0.5rem;
@@ -604,5 +612,12 @@ sidebar {
 
     .pantallaPrincipal_contenido--enlaceRegistro {
         max-width: 60%;
+    }
+
+    /* Sidebar */
+
+    .pantallaPrincipal_sidebar {
+        max-width: 30%;
+        min-width: 30%;
     }
 }
