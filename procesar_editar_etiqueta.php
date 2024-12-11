@@ -3,10 +3,10 @@ require_once("funcionesBD.php");
 $conexion = obtenerConexion();
 
 // Recuperar parámetros
-$idEtiqueta = $_POST['txtModificarId'];
-$nombreEtiqueta = $_POST['txtModificarNombre'];
-$colorEtiqueta = $_POST['txtModificarColor'];
-$ordenEtiqueta = $_POST['txtModificarOrden'];
+$idEtiqueta = trim($_POST['txtModificarId']);
+$nombreEtiqueta = trim($_POST['txtModificarNombre']);
+$colorEtiqueta = trim($_POST['txtModificarColor']);
+$ordenEtiqueta = trim($_POST['txtModificarOrden']);
 
 // No validamos, suponemos que la entrada de datos es correcta
 

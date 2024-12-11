@@ -4,7 +4,7 @@ require_once("funcionesBD.php");
 $conexion = obtenerConexion();
 
 // Recuperar parámetros
-$nombreLista = $_POST['txtNombreLista'];
+$nombreLista = trim($_POST['txtNombreLista']);
 
 // No validamos, suponemos que la entrada de datos es correcta
 $idUsuario = $_SESSION['usuario']['id'];

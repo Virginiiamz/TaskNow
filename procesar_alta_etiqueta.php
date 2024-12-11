@@ -4,9 +4,9 @@ require_once("funcionesBD.php");
 $conexion = obtenerConexion();
 
 // Recuperar parámetros
-$nombreEtiqueta = $_POST['nombreEtiqueta'];
-$colorEtiqueta = $_POST['colorEtiqueta'];
-$ordenEtiqueta = $_POST['ordenEtiqueta'];
+$nombreEtiqueta = trim($_POST['nombreEtiqueta']);
+$colorEtiqueta = trim($_POST['colorEtiqueta']);
+$ordenEtiqueta = trim($_POST['ordenEtiqueta']);
 
 // No validamos, suponemos que la entrada de datos es correcta
 $idUsuario = $_SESSION['usuario']['id'];

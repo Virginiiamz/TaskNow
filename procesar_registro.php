@@ -4,9 +4,9 @@ require_once("funcionesBD.php");
 $conexion = obtenerConexion();
 
 // Recuperar parámetros
-$correo = $_POST['txtCorreoLogin'];
-$username = $_POST['txtUsernameLogin'];
-$password = $_POST['txtPasswordLogin'];
+$correo = trim($_POST['txtCorreoLogin']);
+$username = trim($_POST['txtUsernameLogin']);
+$password = trim($_POST['txtPasswordLogin']);
 
 // Recogemos todos los usuarios, para comprobar que ya no existe un nombre de usuario y correo igual
 $sql = "SELECT * FROM usuario WHERE username = '$username'";

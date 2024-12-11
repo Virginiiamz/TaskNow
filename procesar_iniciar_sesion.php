@@ -3,8 +3,8 @@ session_start();
 require_once("funcionesBD.php");
 $conexion = obtenerConexion();
 
-$username = $_REQUEST['txtUsernameLogin'];
-$password = $_REQUEST['txtPasswordLogin'];
+$username = trim($_REQUEST['txtUsernameLogin']);
+$password = trim($_REQUEST['txtPasswordLogin']);
 
 // Obtenemos todos los usuarios de la bd
 $sql = "SELECT * FROM usuario where username = '$username' and password = '$password'";

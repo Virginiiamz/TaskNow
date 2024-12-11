@@ -3,12 +3,12 @@ require_once("funcionesBD.php");
 $conexion = obtenerConexion();
 
 // Recuperar parámetros
-$idtarea = $_POST['txtModificarId'];
-$idlista = $_POST['idLista'];
-$descripcion = $_POST['txtModificarDescripcion'];
-$estado = $_POST['txtModificarEstado'];
-$etiqueta = $_POST['txtModificarEtiqueta'];
-$esInicio = $_POST['esInicio'];
+$idtarea = trim($_POST['txtModificarId']);
+$idlista = trim($_POST['idLista']);
+$descripcion = trim($_POST['txtModificarDescripcion']);
+$estado = trim($_POST['txtModificarEstado']);
+$etiqueta = trim($_POST['txtModificarEtiqueta']);
+$esInicio = trim($_POST['esInicio']);
 
 // No validamos, suponemos que la entrada de datos es correcta
 

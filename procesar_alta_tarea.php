@@ -4,10 +4,10 @@ $conexion = obtenerConexion();
 
 // Recuperar parámetros
 
-$id_lista = $_POST['txtIdListaTarea'];
-$descripcion = $_POST['txtDescripcionTarea'];
-$etiqueta = $_POST['txtEtiquetaTarea'];
-$fechaVencimiento = $_POST['txtfechaVenTarea'];
+$id_lista = trim($_POST['txtIdListaTarea']);
+$descripcion = trim($_POST['txtDescripcionTarea']);
+$etiqueta = trim($_POST['txtEtiquetaTarea']);
+$fechaVencimiento = trim($_POST['txtfechaVenTarea']);
 
 // Definir insert
 $sql = "INSERT INTO tarea(`id`, `descripcion`, `esrealizada`, `fecha_venc`, `id_lista`, `id_etiqueta`) 
