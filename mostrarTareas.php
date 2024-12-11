@@ -148,13 +148,14 @@ if (isset($_GET['tareasNoCompletadas']) && isset($_GET['listaSeleccionada']) && 
                 </div>
 
                 <div class="accordion m-3" style="border: 0;" id="accordionExample">
-                    <div class="accordion-item" style="border: 0;">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button fw-bold" style="background-color: #2F2F2F; color:  #865F96; border: 0;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <div class="accordion-item" style="border: none; background-color: #2F2F2F;">
+                        <h2 class="accordion-header" style="background-color: #2F2F2F; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                            <a class="fs-5 p-3 text-decoration-none text-white" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 Tareas completadas
-                            </button>
+                            </a>
+                            <i class="bi bi-caret-down-fill p-3 text-white"></i>
                         </h2>
-                        <div id="collapseOne" style="background-color: #454545; color: white; border: 0;" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="collapse" id="collapseExample" style="background-color: #454545; color: white; border: 0;" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <?php
                                 foreach ($tareasCompletadas as $tarea) {
