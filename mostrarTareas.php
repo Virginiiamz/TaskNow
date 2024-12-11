@@ -140,7 +140,7 @@ if (isset($_GET['tareasNoCompletadas']) && isset($_GET['listaSeleccionada']) && 
                                 }
                                 ?>
                             </a>
-                            <a class="pantallaTareas_contenido--borrarTarea fs-5" href="procesar_borrar_tarea.php?idTarea=<?php echo $tarea['id'] ?>&idLista=<?php echo $listaSeleccionada['id'] ?>"><i class="bi bi-trash3-fill text-white"></i></a>
+                            <a class="pantallaTareas_contenido--borrarTarea fs-5" href="procesar_borrar_tarea.php?idTarea=<?php echo $tarea['id'] ?>&idLista=<?php echo $listaSeleccionada['id'] ?>&esInicio=<?php echo false ?>"><i class="bi bi-trash3-fill text-white"></i></a>
                         </div>
                     <?php
                     }
@@ -208,7 +208,7 @@ if (isset($_GET['tareasNoCompletadas']) && isset($_GET['listaSeleccionada']) && 
                                             }
                                             ?>
                                         </a>
-                                        <a class="pantallaTareas_contenido--borrarTarea fs-5" href="procesar_borrar_tarea.php?idTarea=<?php echo $tarea['id'] ?>&idLista=<?php echo $listaSeleccionada['id'] ?>"><i class="bi bi-trash3-fill text-white"></i></a>
+                                        <a class="pantallaTareas_contenido--borrarTarea fs-5" href="procesar_borrar_tarea.php?idTarea=<?php echo $tarea['id'] ?>&idLista=<?php echo $listaSeleccionada['id'] ?>&esInicio=<?php echo false ?>"><i class="bi bi-trash3-fill text-white"></i></a>
                                     </div>
                                 <?php
                                 }

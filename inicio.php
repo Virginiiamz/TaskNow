@@ -3,6 +3,7 @@ session_start();
 $etiquetas = require_once('get_etiquetas.php');
 $listas = require_once('get_listas.php');
 $tareasNoCompletadas = require_once('get_tareas_noCompletadas.php');
+$listaSeleccionada = 0;
 ?>
 
 <!DOCTYPE html>
@@ -91,6 +92,8 @@ $tareasNoCompletadas = require_once('get_tareas_noCompletadas.php');
                                 $etiquetaSeleccionada = $etiqueta;
                             }
                         }
+
+                        $listaSeleccionada = $tarea['id_lista'];
                     ?>
                         <div class="pantallaTareas_contenido">
                             <a class="pantallaTareas_contenido--informacion" href="editar_tarea.php?
@@ -135,7 +138,7 @@ $tareasNoCompletadas = require_once('get_tareas_noCompletadas.php');
                                 }
                                 ?>
                             </a>
-                            <a class="pantallaTareas_contenido--borrarTarea fs-5" href="procesar_borrar_tarea.php?idTarea=<?php echo $tarea['id'] ?>&idLista=<?php echo $listaSeleccionada['id'] ?>"><i class="bi bi-trash3-fill text-white"></i></a>
+                            <a class="pantallaTareas_contenido--borrarTarea fs-5" href="procesar_borrar_tarea.php?idTarea=<?php echo $tarea['id'] ?>&idLista=<?php echo $listaSeleccionada ?>&esInicio=<?php echo true ?>"><i class="bi bi-trash3-fill text-white"></i></a>
                         </div>
                     <?php
                     }

@@ -5,6 +5,7 @@ $conexion = obtenerConexion();
 // Recuperar parámetros
 $idtarea = $_REQUEST['idTarea'];
 $idlista = $_REQUEST['idLista'];
+$esInicio = $_REQUEST['esInicio'];
 
 // No validamos, suponemos que la entrada de datos es correcta
 
@@ -23,6 +24,10 @@ if (mysqli_errno($conexion) != 0) {
     $mensaje =  "<h2 class='text-center mt-5'>La tarea se ha borrado correctamente</h2>"; 
 }
 
-header( "refresh:0;url=get_tarea.php?idLista=$idlista" );
+if ($esInicio == true) {
+    header( "refresh:0;url=inicio.php" );
+} else {
+    header( "refresh:0;url=get_tarea.php?idLista=$idlista" );
+}
 
 ?>
