@@ -34,35 +34,35 @@ $listas = require_once('get_listas.php');
                 </div>
 
                 <div class="collapse navbar-collapse navegacionEnlaces" id="navbarNavAltMarkup">
-                    <div class="navbar-nav d-flex flex-column gap-2 align-items-center">
-                        <a href="gestionar_usuario.php" class="text-decoration-none">
-                            <div class="navegacionEnlaces_usuario">
-                                <p class="fs-5 ms-2 navegacionEnlaces_usuario--enlace"><i
+                    <div class="navbar-nav d-flex flex-column gap-2 align-items-center w-100">
+                        <div class="navegacionEnlaces_usuario">
+                            <a href="gestionar_usuario.php" class="text-decoration-none navegacionEnlaces_usuario--enlace">
+                                <p class="fs-5 m-0"><i
                                         class="bi bi-person-circle me-1"></i>
                                     <span><?php echo $_SESSION['usuario']['username'] ?></span>
                                 </p>
-                            </div>
-                        </a>
-                        <a href="inicio.php" class="navegacionEnlaces_background text-decoration-none">
-                            <div class="navegacionEnlaces_background" id="navegacionEnlaces_active">
-                                <p class="navegacionEnlaces_background--enlace fs-5 ms-2"
+                            </a>
+                        </div>
+                        <div class="navegacionEnlaces_background" id="navegacionEnlaces_active">
+                            <a href="inicio.php" class="navegacionEnlaces_background--enlace text-decoration-none">
+                                <p class="fs-5 m-0"
                                     id="navegacionEnlaces_active--enlace"><i class="bi bi-house-door-fill me-1"></i>
                                     Inicio</p>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                         <?php
                         foreach ($listas as $lista) {
                         ?>
-                            <a href="get_tarea.php?idLista=<?php echo $lista['id'] ?>" class="text-decoration-none">
-                                <div class="navegacionEnlaces_background">
-                                    <p class="navegacionEnlaces_background--enlace fs-5 ms-2"><i
-                                            class="bi bi-journal-check me-1"></i><span><?php echo $lista['nombre'] ?></span>
+                            <div class="navegacionEnlaces_background">
+                                <a href="get_tarea.php?idLista=<?php echo $lista['id'] ?>" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                    <p class="fs-5 m-0"><i
+                                            class="bi bi-journal-check me-1"></i><?php echo $lista['nombre'] ?>
                                     </p>
-                                    <a href="procesar_borrar_lista.php?idLista=<?php echo $lista['id'] ?>">
-                                        <i class="bi bi-x-lg me-3"></i>
-                                    </a>
-                                </div>
-                            </a>
+                                </a>
+                                <a href="procesar_borrar_lista.php?idLista=<?php echo $lista['id'] ?>">
+                                    <i class="bi bi-x-lg me-3"></i>
+                                </a>
+                            </div>
                         <?php
                         }
                         ?>
