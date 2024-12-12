@@ -131,7 +131,7 @@ $listas = require_once('get_listas.php');
                     <a href="" class="text-decoration-none">
                         <figure class="gestionarPerfil_contenido">
                             <i class="bi bi-person-fill-gear"></i>
-                            <p>Configurar datos del usuario</p>
+                            <p>Configurar usuario</p>
                         </figure>
                     </a>
                 </div>
