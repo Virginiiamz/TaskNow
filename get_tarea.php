@@ -17,7 +17,7 @@ $sql_tareas_noCompletadas = "SELECT tarea.*, etiqueta.orden_prioridad
     FROM tarea
     JOIN etiqueta ON tarea.id_etiqueta = etiqueta.id AND etiqueta.id_usuario = $idUsuario
     WHERE tarea.id_lista = $idLista AND esRealizada = 0
-    ORDER BY etiqueta.orden_prioridad ASC";
+    ORDER BY etiqueta.orden_prioridad ASC, tarea.fecha_venc ASC";
 $resultado_tareas_noCompletadas = mysqli_query($conexion, $sql_tareas_noCompletadas);
 
 while ($fila = mysqli_fetch_assoc($resultado_tareas_noCompletadas)) {
@@ -28,7 +28,7 @@ $sql_tareas_completadas = "SELECT tarea.*, etiqueta.orden_prioridad
     FROM tarea
     JOIN etiqueta ON tarea.id_etiqueta = etiqueta.id AND etiqueta.id_usuario = $idUsuario
     WHERE tarea.id_lista = $idLista AND esRealizada = 1
-    ORDER BY etiqueta.orden_prioridad ASC";
+    ORDER BY etiqueta.orden_prioridad ASC, tarea.fecha_venc ASC";
 
 $resultado_tareas_completadas = mysqli_query($conexion, $sql_tareas_completadas);
 while ($fila = mysqli_fetch_assoc($resultado_tareas_completadas)) {
