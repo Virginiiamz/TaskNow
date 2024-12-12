@@ -116,19 +116,22 @@ $listas = require_once('get_listas.php');
             <section>
                 <h2 class="text-white m-3">Gestionar perfil</h2>
                 <div class="gestionarPerfil">
-                    <a href="" data-bs-toggle="modal" data-bs-target="#modalModificarEtiqueta">
+                    <a href="" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalModificarEtiqueta">
                         <figure class="gestionarPerfil_contenido">
                             <i class="bi bi-bookmark-fill"></i>
+                            <p>Editar etiquetas</p>
                         </figure>
                     </a>
-                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEliminarEtiqueta">
+                    <a href="" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalEliminarEtiqueta">
                         <figure class="gestionarPerfil_contenido">
                             <i class="bi bi-bookmark-x-fill"></i>
+                            <p>Eliminar etiquetas</p>
                         </figure>
                     </a>
-                    <a href="">
+                    <a href="" class="text-decoration-none">
                         <figure class="gestionarPerfil_contenido">
                             <i class="bi bi-person-fill-gear"></i>
+                            <p>Configurar datos del usuario</p>
                         </figure>
                     </a>
                 </div>
