@@ -37,7 +37,7 @@ if (isset($_REQUEST['idTarea'])) {
             <nav class="navbar navbar-expand-md pantallaPrincipal_sidebar--navegacion">
 
                 <div class="navegacionPrincipal">
-                    <a class="navbar-brand align-self-center navegacionPrincipal_logo" href="#"><img
+                    <a class="navbar-brand align-self-center navegacionPrincipal_logo" href="inicio.php"><img
                             src="src/img/Logo_tipo2.png" class="img-fluid navegacionPrincipal_logo--logo"
                             alt="Logo"></a>
                     <button class="navegacionPrincipal_btn" type="button" data-bs-toggle="collapse"
