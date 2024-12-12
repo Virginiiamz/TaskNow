@@ -19,21 +19,56 @@ $listas = require_once('get_listas.php');
 <body>
 
     <section class="pantallaPrincipal">
-        <sidebar class="rounded-end-2 p-0 pantallaPrincipal_sidebar">
+    <sidebar class="rounded-end-2 p-0 pantallaPrincipal_sidebar">
             <nav class="navbar navbar-expand-md pantallaPrincipal_sidebar--navegacion">
 
                 <div class="navegacionPrincipal">
                     <a class="navbar-brand align-self-center navegacionPrincipal_logo" href="inicio.php"><img
                             src="src/img/Logo_tipo2.png" class="img-fluid navegacionPrincipal_logo--logo"
                             alt="Logo"></a>
-                    <button class="navegacionPrincipal_btn" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    <button class="navegacionPrincipal_btn" type="button" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
 
-                <div class="collapse navbar-collapse navegacionEnlaces" id="navbarNavAltMarkup">
+                <div class="offcanvas offcanvas-start d-md-none navegacionEnlaces" style="background-color: #2F2F2F;" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                    <div class="navbar-nav d-flex flex-column gap-2 align-items-center w-100">
+                        <button type="button" class="btn-close btn-close-white align-self-end" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <div class="navegacionEnlaces_usuario">
+                            <a href="gestionar_usuario.php" class="text-decoration-none navegacionEnlaces_usuario--enlace">
+                                <p class="fs-5 m-0"><i
+                                        class="bi bi-person-circle me-1"></i>
+                                    <span><?php echo $_SESSION['usuario']['username'] ?></span>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="navegacionEnlaces_background" id="navegacionEnlaces_active">
+                            <a href="inicio.php" class="navegacionEnlaces_background--enlace text-decoration-none">
+                                <p class="fs-5 m-0"
+                                    id="navegacionEnlaces_active--enlace"><i class="bi bi-house-door-fill me-1"></i>
+                                    Inicio</p>
+                            </a>
+                        </div>
+                        <?php
+                        foreach ($listas as $lista) {
+                        ?>
+                            <div class="navegacionEnlaces_background">
+                                <a href="get_tarea.php?idLista=<?php echo $lista['id'] ?>" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                    <p class="fs-5 m-0"><i
+                                            class="bi bi-journal-check me-1"></i><?php echo $lista['nombre'] ?>
+                                    </p>
+                                </a>
+                                <a href="procesar_borrar_lista.php?idLista=<?php echo $lista['id'] ?>">
+                                    <i class="bi bi-x-lg me-3"></i>
+                                </a>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+
+                <div class="collapse navbar-collapse d-sm-none navegacionEnlaces" id="navbarNavAltMarkup">
                     <div class="navbar-nav d-flex flex-column gap-2 align-items-center w-100">
                         <div class="navegacionEnlaces_usuario">
                             <a href="gestionar_usuario.php" class="text-decoration-none navegacionEnlaces_usuario--enlace">
@@ -70,6 +105,7 @@ $listas = require_once('get_listas.php');
                 </div>
             </nav>
         </sidebar>
+
         <main class="pantallaPrincipal_contenido" style="min-height: 100vh;">
             <section class="pantallaPrincipal_contenido--header">
                 <a href="procesar_cerrar_sesion.php" class="header_btnCrear fs-5"><i class="bi bi-reply-all-fill me-1 fs-5"></i> Cerrar sesión</a>

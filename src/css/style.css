@@ -32,6 +32,10 @@ sidebar {
     background-color: var(--color-secundario);
 }
 
+.offcanvas {
+    width: 16rem !important;
+}
+
 .btn_formularios {
     padding: 0.5rem 1rem;
     background-color: var(--color-terciario);
