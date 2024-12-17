@@ -28,7 +28,7 @@ if (isset($_POST['modEtiqueta'])) {
 <body>
 
     <section class="pantallaPrincipal">
-    <sidebar class="rounded-end-2 p-0 pantallaPrincipal_sidebar">
+        <sidebar class="rounded-end-2 p-0 pantallaPrincipal_sidebar">
             <nav class="navbar navbar-expand-md pantallaPrincipal_sidebar--navegacion">
 
                 <div class="navegacionPrincipal">
@@ -54,26 +54,34 @@ if (isset($_POST['modEtiqueta'])) {
                         <div class="navegacionEnlaces_background" id="navegacionEnlaces_active">
                             <a href="inicio.php" class="navegacionEnlaces_background--enlace text-decoration-none">
                                 <p class="fs-5 m-0"
-                                    id="navegacionEnlaces_active--enlace"><i class="bi bi-house-door-fill me-1"></i>
-                                    Inicio</p>
+                                    id="navegacionEnlaces_active--enlace"><i class="bi bi-house-door-fill me-1"></i> Inicio</p>
                             </a>
                         </div>
-                        <?php
-                        foreach ($listas as $lista) {
-                        ?>
-                            <div class="navegacionEnlaces_background">
-                                <a href="get_tarea.php?idLista=<?php echo $lista['id'] ?>" class="text-decoration-none navegacionEnlaces_background--enlace">
-                                    <p class="fs-5 m-0"><i
-                                            class="bi bi-journal-check me-1"></i><?php echo $lista['nombre'] ?>
-                                    </p>
-                                </a>
-                                <a href="procesar_borrar_lista.php?idLista=<?php echo $lista['id'] ?>">
-                                    <i class="bi bi-x-lg me-3"></i>
-                                </a>
-                            </div>
-                        <?php
-                        }
-                        ?>
+                        <div class="navegacionEnlaces_background">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalModificarEtiqueta" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                <p class="fs-5 m-0"><i class="bi bi-bookmark-fill me-1"></i> Editar etiquetas</p>
+                            </a>
+                        </div>
+                        <div class="navegacionEnlaces_background">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalEliminarEtiqueta" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                <p class="fs-5 m-0"><i class="bi bi-bookmark-x-fill me-1"></i> Eliminar etiquetas</p>
+                            </a>
+                        </div>
+                        <div class="navegacionEnlaces_background">
+                            <a href="" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                <p class="fs-5 m-0"><i class="bi bi-clipboard2-fill me-1"></i> Modificar listas</p>
+                            </a>
+                        </div>
+                        <div class="navegacionEnlaces_background">
+                            <a href="" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                <p class="fs-5 m-0"><i class="bi bi-archive-fill me-1"></i> Listas archivadas</p>
+                            </a>
+                        </div>
+                        <div class="navegacionEnlaces_background">
+                            <a href="" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                <p class="fs-5 m-0"><i class="bi bi-archive-fill me-1"></i> Desarchivar listas</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -90,26 +98,34 @@ if (isset($_POST['modEtiqueta'])) {
                         <div class="navegacionEnlaces_background" id="navegacionEnlaces_active">
                             <a href="inicio.php" class="navegacionEnlaces_background--enlace text-decoration-none">
                                 <p class="fs-5 m-0"
-                                    id="navegacionEnlaces_active--enlace"><i class="bi bi-house-door-fill me-1"></i>
-                                    Inicio</p>
+                                    id="navegacionEnlaces_active--enlace"><i class="bi bi-house-door-fill me-1"></i> Inicio</p>
                             </a>
                         </div>
-                        <?php
-                        foreach ($listas as $lista) {
-                        ?>
-                            <div class="navegacionEnlaces_background">
-                                <a href="get_tarea.php?idLista=<?php echo $lista['id'] ?>" class="text-decoration-none navegacionEnlaces_background--enlace">
-                                    <p class="fs-5 m-0"><i
-                                            class="bi bi-journal-check me-1"></i><?php echo $lista['nombre'] ?>
-                                    </p>
-                                </a>
-                                <a href="procesar_borrar_lista.php?idLista=<?php echo $lista['id'] ?>">
-                                    <i class="bi bi-x-lg me-3"></i>
-                                </a>
-                            </div>
-                        <?php
-                        }
-                        ?>
+                        <div class="navegacionEnlaces_background">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalModificarEtiqueta" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                <p class="fs-5 m-0"><i class="bi bi-bookmark-fill me-1"></i> Editar etiquetas</p>
+                            </a>
+                        </div>
+                        <div class="navegacionEnlaces_background">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalEliminarEtiqueta" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                <p class="fs-5 m-0"><i class="bi bi-bookmark-x-fill me-1"></i> Eliminar etiquetas</p>
+                            </a>
+                        </div>
+                        <div class="navegacionEnlaces_background">
+                            <a href="" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                <p class="fs-5 m-0"><i class="bi bi-clipboard2-fill me-1"></i> Modificar listas</p>
+                            </a>
+                        </div>
+                        <div class="navegacionEnlaces_background">
+                            <a href="" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                <p class="fs-5 m-0"><i class="bi bi-archive-fill me-1"></i> Listas archivadas</p>
+                            </a>
+                        </div>
+                        <div class="navegacionEnlaces_background">
+                            <a href="" class="text-decoration-none navegacionEnlaces_background--enlace">
+                                <p class="fs-5 m-0"><i class="bi bi-archive-fill me-1"></i> Desarchivar listas</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </nav>
