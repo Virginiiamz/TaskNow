@@ -122,7 +122,10 @@ if (isset($_GET['tareasNoCompletadas']) && isset($_GET['listaSeleccionada']) && 
             </section>
 
             <section>
-                <h2 class="text-white m-3"><?php echo $listaSeleccionada['nombre'] ?></h2>
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <h2 class="text-white m-3"><?php echo $listaSeleccionada['nombre'] ?></h2>
+                    <a class="tituloInicio_btnEtiquetas m-3" href="procesar_agrupar_lista.php?lista=<?php echo $listaSeleccionada['id'] ?>"><i class="bi bi-archive-fill me-1"></i>Agrupar lista</a>
+                </div>
 
                 <div class="pantallaTareas">
                     <?php

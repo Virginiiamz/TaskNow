@@ -6,7 +6,7 @@ $conexion = obtenerConexion();
 $idUsuario = $_SESSION['usuario']['id'];
 
 // Definir insert
-$sql = "SELECT * FROM lista WHERE id_usuario = $idUsuario";
+$sql = "SELECT * FROM lista WHERE id_usuario = $idUsuario AND agrupado = 0";
 
 // Ejecutar consulta
 $resultado = mysqli_query($conexion, $sql);
