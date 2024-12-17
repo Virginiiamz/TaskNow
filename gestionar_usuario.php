@@ -49,7 +49,7 @@ $listas = require_once('get_listas.php');
                             </a>
                         </div>
                         <div class="navegacionEnlaces_background">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#modalModificarEtiqueta" class="text-decoration-none navegacionEnlaces_background--enlace">
+                            <a href="editar_etiqueta.php" class="text-decoration-none navegacionEnlaces_background--enlace">
                                 <p class="fs-5 m-0"><i class="bi bi-bookmark-fill me-1"></i> Editar etiquetas</p>
                             </a>
                         </div>
@@ -93,7 +93,7 @@ $listas = require_once('get_listas.php');
                             </a>
                         </div>
                         <div class="navegacionEnlaces_background">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#modalModificarEtiqueta" class="text-decoration-none navegacionEnlaces_background--enlace">
+                            <a href="editar_etiqueta.php" class="text-decoration-none navegacionEnlaces_background--enlace">
                                 <p class="fs-5 m-0"><i class="bi bi-bookmark-fill me-1"></i> Editar etiquetas</p>
                             </a>
                         </div>

@@ -1,16 +1,6 @@
 <?php
 session_start();
 $etiquetas = require_once('get_etiquetas.php');
-$listas = require_once('get_listas.php');
-if (isset($_POST['modEtiqueta'])) {
-    $idEtiqueta = $_POST['modEtiqueta'];
-
-    foreach ($etiquetas as $etiqueta) {
-        if ($etiqueta['id'] == $idEtiqueta) {
-            $etiquetaSeleccionada = $etiqueta;
-        }
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -139,29 +129,21 @@ if (isset($_POST['modEtiqueta'])) {
             </section>
 
             <section>
-                <h2 class="text-white m-3">Editar etiqueta</h2>
-                <form action="procesar_editar_etiqueta.php" class="form m-3 formularioEditarTarea" method="post">
-                    <input type="hidden" name="txtModificarId" value="<?php echo $etiquetaSeleccionada['id'] ?>">
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="txtModificarNombre" class="form-label text-white fs-5">Nombre:</label>
-                            <input type="text" class="form-control" name="txtModificarNombre" id="txtModificarNombre" value="<?php echo $etiquetaSeleccionada['nombre'] ?>">
+                <h2 class="text-white m-3">Editar etiquetas</h2>
+                <div>
+                    <?php
+                    foreach ($etiquetas as $etiqueta) {
+                    ?>
+                        <div class="d-flex flex-row justify-content-between align-items-center">
+                            <i class="bi bi-pencil-square"></i>
+                            <p><?php echo $etiqueta['nombre'] ?></p>
+                            <p><?php echo $etiqueta['orden_prioridad'] ?></p>
+                            <p style="background-color: <?php echo $etiqueta['color'] ?>;"><?php echo $etiqueta['color'] ?></p>
                         </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="txtModificarOrden" class="form-label text-white fs-5">Orden de prioridad:</label>
-                            <input type="number" class="form-control" name="txtModificarOrden" id="txtModificarOrden" value="<?php echo $etiquetaSeleccionada['orden_prioridad'] ?>">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="txtModificarColor" class="form-label text-white fs-5">Color: </label>
-                            <input type="color" class="form-control" name="txtModificarColor" id="txtModificarColor" value="<?php echo $etiquetaSeleccionada['color'] ?>">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn_formularios fs-5">Guardar</button>
-                </form>
+                    <?php
+                    }
+                    ?>
+                </div>
             </section>
         </main>
     </section>
